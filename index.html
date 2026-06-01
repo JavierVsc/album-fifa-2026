@@ -8,7 +8,6 @@
     :root {
       --bg: #07111f;
       --panel: #0f1f35;
-      --panel-2: #132844;
       --text: #f4f7fb;
       --muted: #9fb2ce;
       --line: rgba(255,255,255,.12);
@@ -102,13 +101,14 @@
       margin-bottom: 14px;
     }
 
-    .stat {
+    .stat, .filter-card, .country {
       background: rgba(255,255,255,.06);
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: 14px;
-      min-height: 92px;
     }
+
+    .stat { min-height: 92px; }
 
     .stat strong {
       display: block;
@@ -162,6 +162,73 @@
     .dot.owned { background: var(--owned); }
     .dot.duplicate { background: var(--dup); }
 
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .filter-card h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .filter-card select {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.09);
+      color: var(--text);
+      padding: 10px 12px;
+      font: inherit;
+      outline: none;
+    }
+
+    .filter-card select option { color: #101827; }
+
+    .filter-result {
+      margin-top: 12px;
+      min-height: 72px;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .filter-summary {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .card-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .mini-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      min-width: 48px;
+      padding: 7px 9px;
+      border-radius: 11px;
+      font-size: 13px;
+      font-weight: 900;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+    }
+
+    .mini-card.duplicate {
+      background: rgba(255,209,102,.22);
+      border-color: rgba(255,209,102,.55);
+    }
+
     .tabs {
       display: flex;
       gap: 8px;
@@ -175,9 +242,7 @@
       backdrop-filter: blur(10px);
     }
 
-    .tab-btn,
-    .action-btn,
-    .card-btn {
+    .tab-btn, .action-btn, .card-btn {
       border: 0;
       cursor: pointer;
       color: var(--text);
@@ -232,13 +297,6 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-    }
-
-    .country {
-      background: rgba(255,255,255,.055);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 14px;
     }
 
     .country h3 {
@@ -298,7 +356,7 @@
       header { padding-top: calc(18px + env(safe-area-inset-top)); }
       main { padding: 10px; }
       .panel { border-radius: 20px; padding: 12px; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stats, .filters { grid-template-columns: 1fr; }
       .countries { grid-template-columns: 1fr; }
       .cards-grid { grid-template-columns: repeat(4, 1fr); }
       .card-btn { min-height: 52px; font-size: 15px; }
@@ -337,6 +395,20 @@
         <span class="pill"><span class="dot duplicate"></span>Repetida</span>
       </div>
 
+      <section class="filters">
+        <article class="filter-card">
+          <h2>Cartas faltantes por país</h2>
+          <select id="missingCountry" onchange="renderFilters()"></select>
+          <div class="filter-result" id="missingResult"></div>
+        </article>
+
+        <article class="filter-card">
+          <h2>Cartas repetidas por país</h2>
+          <select id="duplicateCountry" onchange="renderFilters()"></select>
+          <div class="filter-result" id="duplicateResult"></div>
+        </article>
+      </section>
+
       <nav class="tabs" id="tabs"></nav>
 
       <section class="actions">
@@ -354,12 +426,6 @@
   </main>
 
   <script type="module">
-    // Para sincronizar entre celulares y computadores:
-    // 1) Crea un proyecto en Firebase.
-    // 2) Activa Firestore Database.
-    // 3) Copia tu configuración web y reemplaza los datos de firebaseConfig.
-    // 4) Cambia FIREBASE_ACTIVO a true.
-
     const FIREBASE_ACTIVO = false;
 
     const firebaseConfig = {
@@ -402,6 +468,7 @@
     window.markVisibleAsOwned = markVisibleAsOwned;
     window.clearVisibleTab = clearVisibleTab;
     window.resetAlbum = resetAlbum;
+    window.renderFilters = renderFilters;
 
     function loadLocalState() {
       try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
@@ -428,7 +495,6 @@
       try {
         const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js");
         const { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");
-
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         docRef = doc(db, "albums", ALBUM_ID);
@@ -502,11 +568,60 @@
       setCardStatus(key, nextStatus(getStatus(key)));
     }
 
+    function getAllCollections() {
+      const list = [];
+      album.forEach(section => {
+        section.countries.forEach(country => {
+          list.push({ sectionId: section.id, sectionTitle: section.title, country });
+        });
+      });
+      return list;
+    }
+
+    function getCardsByCountry(country, wantedStatus) {
+      const collection = getAllCollections().find(item => item.country === country);
+      if (!collection) return [];
+      return getCardNumbers(collection.sectionId).filter(card => {
+        const key = cardKey(collection.sectionId, collection.country, card);
+        const status = getStatus(key);
+        if (wantedStatus === "missing") return status === "missing";
+        return status === wantedStatus;
+      });
+    }
+
+    function renderCountrySelects() {
+      const options = getAllCollections().map(item => `<option value="${item.country}">${item.country} · ${item.sectionTitle}</option>`).join("");
+      const missingSelect = document.getElementById("missingCountry");
+      const duplicateSelect = document.getElementById("duplicateCountry");
+
+      if (!missingSelect.innerHTML) missingSelect.innerHTML = options;
+      if (!duplicateSelect.innerHTML) duplicateSelect.innerHTML = options;
+    }
+
+    function renderFilterBox(resultId, country, type) {
+      const result = document.getElementById(resultId);
+      const cards = getCardsByCountry(country, type);
+      const label = type === "missing" ? "faltantes" : "repetidas";
+      const emptyText = type === "missing" ? "No tienes cartas faltantes en esta sección." : "No tienes cartas repetidas en esta sección.";
+      const className = type === "duplicate" ? "mini-card duplicate" : "mini-card";
+
+      result.innerHTML = `
+        <div class="filter-summary"><strong>${country}</strong>: ${cards.length} carta(s) ${label}</div>
+        ${cards.length ? `<div class="card-list">${cards.map(card => `<span class="${className}">${card}</span>`).join("")}</div>` : `<div class="filter-summary">${emptyText}</div>`}
+      `;
+    }
+
+    function renderFilters() {
+      renderCountrySelects();
+      const missingCountry = document.getElementById("missingCountry").value || getAllCollections()[0].country;
+      const duplicateCountry = document.getElementById("duplicateCountry").value || getAllCollections()[0].country;
+      renderFilterBox("missingResult", missingCountry, "missing");
+      renderFilterBox("duplicateResult", duplicateCountry, "duplicate");
+    }
+
     function renderTabs() {
       document.getElementById("tabs").innerHTML = album.map(section => `
-        <button class="tab-btn ${section.id === activeTab ? "active" : ""}" onclick="changeTab('${section.id}')">
-          ${section.id}
-        </button>
+        <button class="tab-btn ${section.id === activeTab ? "active" : ""}" onclick="changeTab('${section.id}')">${section.id}</button>
       `).join("");
     }
 
@@ -592,6 +707,7 @@
       renderTabs();
       renderContent();
       updateStats();
+      renderFilters();
     }
 
     render();
