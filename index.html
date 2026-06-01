@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Álbum FIFA 2026</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: #0f1f35;
+      --panel-2: #132844;
+      --text: #f4f7fb;
+      --muted: #9fb2ce;
+      --line: rgba(255,255,255,.12);
+      --accent: #35c2ff;
+      --owned: #20c997;
+      --dup: #ffd166;
+      --danger: #ff6b6b;
+      --shadow: 0 18px 40px rgba(0,0,0,.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #17365f 0%, var(--bg) 42%, #040914 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 24px 16px 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      margin: 10px auto 0;
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 15px;
+    }
+
+    main {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 14px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .sync-box {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sync-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .badge.online { border-color: rgba(32,201,151,.6); }
+    .badge.offline { border-color: rgba(255,107,107,.55); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 14px;
+      min-height: 92px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(25px, 5vw, 40px);
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .progress-wrap {
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      height: 18px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--owned), var(--accent));
+      transition: width .25s ease;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; background: rgba(255,255,255,.22); }
+    .dot.owned { background: var(--owned); }
+    .dot.duplicate { background: var(--dup); }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 0 12px;
+      scrollbar-width: thin;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: linear-gradient(180deg, rgba(7,17,31,.98), rgba(7,17,31,.76));
+      backdrop-filter: blur(10px);
+    }
+
+    .tab-btn,
+    .action-btn,
+    .card-btn {
+      border: 0;
+      cursor: pointer;
+      color: var(--text);
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tab-btn {
+      flex: 0 0 auto;
+      min-width: 48px;
+      min-height: 44px;
+      border-radius: 14px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      font-weight: 800;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--accent), #6c5ce7);
+      color: #fff;
+      border-color: rgba(255,255,255,.25);
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 2px 0 14px;
+    }
+
+    .action-btn {
+      min-height: 42px;
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: rgba(53,194,255,.13);
+      border: 1px solid rgba(53,194,255,.24);
+      font-weight: 700;
+    }
+
+    .action-btn.danger {
+      background: rgba(255,107,107,.13);
+      border-color: rgba(255,107,107,.28);
+    }
+
+    .group-title {
+      margin: 8px 0 14px;
+      font-size: 24px;
+    }
+
+    .countries {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .country {
+      background: rgba(255,255,255,.055);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 14px;
+    }
+
+    .country h3 {
+      margin: 0 0 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+    }
+
+    .country h3 small {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .card-btn {
+      min-height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      font-weight: 900;
+      color: var(--muted);
+      transition: transform .12s ease, background .12s ease, color .12s ease;
+    }
+
+    .card-btn:active { transform: scale(.96); }
+
+    .card-btn.owned {
+      background: rgba(32,201,151,.24);
+      border-color: rgba(32,201,151,.55);
+      color: #eafff8;
+    }
+
+    .card-btn.duplicate {
+      background: rgba(255,209,102,.24);
+      border-color: rgba(255,209,102,.65);
+      color: #fff7dd;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 760px) {
+      header { padding-top: calc(18px + env(safe-area-inset-top)); }
+      main { padding: 10px; }
+      .panel { border-radius: 20px; padding: 12px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .countries { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: repeat(4, 1fr); }
+      .card-btn { min-height: 52px; font-size: 15px; }
+      .action-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Álbum FIFA 2026</h1>
+    <p class="subtitle">Controla tus cartas: faltantes, cartas que tienes y repetidas. Funciona en iPhone, Mac y computador.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="sync-box">
+        <div class="sync-row">
+          <span id="syncStatus" class="badge offline">Sincronización online desactivada</span>
+          <span id="lastUpdateText">Guardado local en este navegador</span>
+        </div>
+        <div>1 clic: tengo · 2 clics: repetida · 3 clics: faltante nuevamente</div>
+      </div>
+
+      <section class="stats">
+        <div class="stat"><strong id="progressText">0%</strong><span>Progreso</span></div>
+        <div class="stat"><strong id="ownedText">0</strong><span>Cartas que tengo</span></div>
+        <div class="stat"><strong id="missingText">0</strong><span>Cartas faltantes</span></div>
+        <div class="stat"><strong id="duplicateText">0</strong><span>Cartas repetidas</span></div>
+      </section>
+
+      <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+      <div class="legend">
+        <span class="pill"><span class="dot"></span>Faltante</span>
+        <span class="pill"><span class="dot owned"></span>Tengo</span>
+        <span class="pill"><span class="dot duplicate"></span>Repetida</span>
+      </div>
+
+      <nav class="tabs" id="tabs"></nav>
+
+      <section class="actions">
+        <button class="action-btn" onclick="markVisibleAsOwned()">Marcar pestaña visible como tengo</button>
+        <button class="action-btn" onclick="clearVisibleTab()">Limpiar pestaña visible</button>
+        <button class="action-btn danger" onclick="resetAlbum()">Reiniciar todo el álbum</button>
+      </section>
+
+      <section id="content"></section>
+
+      <p class="note">
+        Para que otras personas vean tus cambios en vivo, debes activar Firebase Firestore en este archivo. GitHub Pages publica la página, pero Firebase guarda el progreso compartido.
+      </p>
+    </section>
+  </main>
+
+  <script type="module">
+    // Para sincronizar entre celulares y computadores:
+    // 1) Crea un proyecto en Firebase.
+    // 2) Activa Firestore Database.
+    // 3) Copia tu configuración web y reemplaza los datos de firebaseConfig.
+    // 4) Cambia FIREBASE_ACTIVO a true.
+
+    const FIREBASE_ACTIVO = false;
+
+    const firebaseConfig = {
+      apiKey: "PEGA_AQUI_TU_API_KEY",
+      authDomain: "PEGA_AQUI.firebaseapp.com",
+      projectId: "PEGA_AQUI_TU_PROJECT_ID",
+      storageBucket: "PEGA_AQUI.appspot.com",
+      messagingSenderId: "PEGA_AQUI",
+      appId: "PEGA_AQUI"
+    };
+
+    const ALBUM_ID = "album-fifa-2026-javier";
+    const STORAGE_KEY = "album-fifa-2026-progreso";
+
+    const album = [
+      { id: "A", title: "División A", countries: ["México", "Sudáfrica", "Corea del Sur", "Chequia"] },
+      { id: "B", title: "División B", countries: ["Canadá", "Bosnia y Herzegovina", "Qatar", "Suiza"] },
+      { id: "C", title: "División C", countries: ["Brasil", "Marruecos", "Haití", "Escocia"] },
+      { id: "D", title: "División D", countries: ["Estados Unidos", "Paraguay", "Australia", "Turquía"] },
+      { id: "E", title: "División E", countries: ["Alemania", "Curazao", "Costa de Marfil", "Ecuador"] },
+      { id: "F", title: "División F", countries: ["Países Bajos", "Japón", "Suecia", "Túnez"] },
+      { id: "G", title: "División G", countries: ["Bélgica", "Egipto", "Irán", "Nueva Zelanda"] },
+      { id: "H", title: "División H", countries: ["España", "Cabo Verde", "Arabia Saudita", "Uruguay"] },
+      { id: "I", title: "División I", countries: ["Francia", "Senegal", "Irak", "Noruega"] },
+      { id: "J", title: "División J", countries: ["Argentina", "Argelia", "Austria", "Jordania"] },
+      { id: "K", title: "División K", countries: ["Portugal", "RD Congo", "Uzbekistán", "Colombia"] },
+      { id: "L", title: "División L", countries: ["Inglaterra", "Croacia", "Ghana", "Panamá"] },
+      { id: "FWC", title: "FWC", countries: ["FWC"] }
+    ];
+
+    const totalCards = 12 * 4 * 20 + 20;
+    let activeTab = "A";
+    let state = loadLocalState();
+    let docRef = null;
+    let firebaseReady = false;
+    let saving = false;
+
+    window.changeTab = changeTab;
+    window.cycleCard = cycleCard;
+    window.markVisibleAsOwned = markVisibleAsOwned;
+    window.clearVisibleTab = clearVisibleTab;
+    window.resetAlbum = resetAlbum;
+
+    function loadLocalState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch { return {}; }
+    }
+
+    function saveLocalState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      document.getElementById("lastUpdateText").textContent = "Último guardado local: " + new Date().toLocaleString("es-CL");
+    }
+
+    function setSyncStatus(text, mode = "") {
+      const element = document.getElementById("syncStatus");
+      element.textContent = text;
+      element.className = `badge ${mode}`.trim();
+    }
+
+    async function initFirebase() {
+      if (!FIREBASE_ACTIVO) {
+        setSyncStatus("Sincronización online desactivada", "offline");
+        return;
+      }
+
+      try {
+        const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js");
+        const { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        docRef = doc(db, "albums", ALBUM_ID);
+        firebaseReady = true;
+        window.firebaseSetDoc = setDoc;
+        window.firebaseServerTimestamp = serverTimestamp;
+        setSyncStatus("Sincronización online activa", "online");
+
+        onSnapshot(docRef, snapshot => {
+          if (!snapshot.exists()) return;
+          const data = snapshot.data();
+          if (data && data.cards) {
+            state = data.cards;
+            saveLocalState();
+            render();
+          }
+          if (data && data.updatedAt && data.updatedAt.toDate) {
+            document.getElementById("lastUpdateText").textContent = "Última actualización online: " + data.updatedAt.toDate().toLocaleString("es-CL");
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        setSyncStatus("Error al conectar Firebase", "offline");
+      }
+    }
+
+    async function saveCloudState() {
+      saveLocalState();
+      if (!firebaseReady || !docRef || saving) return;
+      saving = true;
+      try {
+        await window.firebaseSetDoc(docRef, {
+          cards: state,
+          updatedAt: window.firebaseServerTimestamp()
+        }, { merge: true });
+      } catch (error) {
+        console.error(error);
+        setSyncStatus("Error al guardar online", "offline");
+      } finally {
+        saving = false;
+      }
+    }
+
+    function getCardNumbers(sectionId) {
+      if (sectionId === "FWC") return ["FWC 00", ...Array.from({ length: 19 }, (_, i) => `FWC ${i + 1}`)];
+      return Array.from({ length: 20 }, (_, i) => String(i + 1).padStart(2, "0"));
+    }
+
+    function cardKey(sectionId, country, cardNumber) {
+      return `${sectionId}|${country}|${cardNumber}`;
+    }
+
+    function getStatus(key) {
+      return state[key] || "missing";
+    }
+
+    function nextStatus(current) {
+      if (current === "missing") return "owned";
+      if (current === "owned") return "duplicate";
+      return "missing";
+    }
+
+    function setCardStatus(key, status) {
+      if (status === "missing") delete state[key];
+      else state[key] = status;
+      saveCloudState();
+      render();
+    }
+
+    function cycleCard(key) {
+      setCardStatus(key, nextStatus(getStatus(key)));
+    }
+
+    function renderTabs() {
+      document.getElementById("tabs").innerHTML = album.map(section => `
+        <button class="tab-btn ${section.id === activeTab ? "active" : ""}" onclick="changeTab('${section.id}')">
+          ${section.id}
+        </button>
+      `).join("");
+    }
+
+    function changeTab(tabId) {
+      activeTab = tabId;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderContent() {
+      const section = album.find(item => item.id === activeTab);
+      const cards = getCardNumbers(section.id);
+
+      document.getElementById("content").innerHTML = `
+        <h2 class="group-title">${section.title}</h2>
+        <div class="countries">
+          ${section.countries.map(country => `
+            <article class="country">
+              <h3>${country}<small>${cards.length} cartas</small></h3>
+              <div class="cards-grid">
+                ${cards.map(card => {
+                  const key = cardKey(section.id, country, card);
+                  const status = getStatus(key);
+                  return `<button class="card-btn ${status !== "missing" ? status : ""}" onclick="cycleCard('${key}')">${card}</button>`;
+                }).join("")}
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function updateStats() {
+      let owned = 0;
+      let duplicate = 0;
+
+      Object.values(state).forEach(status => {
+        if (status === "owned" || status === "duplicate") owned++;
+        if (status === "duplicate") duplicate++;
+      });
+
+      const missing = totalCards - owned;
+      const progress = totalCards === 0 ? 0 : Math.round((owned / totalCards) * 100);
+
+      document.getElementById("ownedText").textContent = owned;
+      document.getElementById("missingText").textContent = missing;
+      document.getElementById("duplicateText").textContent = duplicate;
+      document.getElementById("progressText").textContent = `${progress}%`;
+      document.getElementById("progressBar").style.width = `${progress}%`;
+    }
+
+    function visibleKeys() {
+      const section = album.find(item => item.id === activeTab);
+      const cards = getCardNumbers(section.id);
+      const keys = [];
+      section.countries.forEach(country => {
+        cards.forEach(card => keys.push(cardKey(section.id, country, card)));
+      });
+      return keys;
+    }
+
+    function markVisibleAsOwned() {
+      visibleKeys().forEach(key => state[key] = "owned");
+      saveCloudState();
+      render();
+    }
+
+    function clearVisibleTab() {
+      if (!confirm("¿Limpiar solo la pestaña visible?")) return;
+      visibleKeys().forEach(key => delete state[key]);
+      saveCloudState();
+      render();
+    }
+
+    function resetAlbum() {
+      if (!confirm("¿Reiniciar todo el álbum?")) return;
+      state = {};
+      saveCloudState();
+      render();
+    }
+
+    function render() {
+      renderTabs();
+      renderContent();
+      updateStats();
+    }
+
+    render();
+    initFirebase();
+  </script>
+</body>
+</html>
