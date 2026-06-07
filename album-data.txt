@@ -1,0 +1,1001 @@
+País;Código País;Número de Lámina;Nombre
+Argelia;ALG;1;Escudo
+Argelia;ALG;2;Alexis Guendouz
+Argelia;ALG;3;Ramy Bensebaini
+Argelia;ALG;4;Youcef Atal
+Argelia;ALG;5;Rayan Aït-Nouri
+Argelia;ALG;6;Mohamed Amine Tougai
+Argelia;ALG;7;Aïssa Mandi
+Argelia;ALG;8;Ismael Bennacer
+Argelia;ALG;9;Houssem Aouar
+Argelia;ALG;10;Hicham Boudaoui
+Argelia;ALG;11;Ramiz Zerrouki
+Argelia;ALG;12;Nabil Bentaleb
+Argelia;ALG;13;Foto del equipo
+Argelia;ALG;14;Farés Chaibi
+Argelia;ALG;15;Riyad Mahrez
+Argelia;ALG;16;Saïd Benrahma
+Argelia;ALG;17;Anis Hadj Moussa
+Argelia;ALG;18;Amine Gouiri
+Argelia;ALG;19;Baghdad Bounedjah
+Argelia;ALG;20;Mohammed Amoura
+Argentina;ARG;1;Escudo
+Argentina;ARG;2;Emiliano Martínez
+Argentina;ARG;3;Nahuel Molina
+Argentina;ARG;4;Cristian Romero
+Argentina;ARG;5;Nicolás Otamendi
+Argentina;ARG;6;Nicolás Tagliafico
+Argentina;ARG;7;Leonardo Balerdi
+Argentina;ARG;8;Enzo Fernández
+Argentina;ARG;9;Alexis Mac Allister
+Argentina;ARG;10;Rodrigo De Paul
+Argentina;ARG;11;Exequiel Palacios
+Argentina;ARG;12;Leandro Paredes
+Argentina;ARG;13;Foto del equipo
+Argentina;ARG;14;Nico Paz
+Argentina;ARG;15;Franco Mastantuono
+Argentina;ARG;16;Nico González
+Argentina;ARG;17;Lionel Messi
+Argentina;ARG;18;Lautaro Martínez
+Argentina;ARG;19;Julián Álvarez
+Argentina;ARG;20;Giuliano Simeone
+Australia;AUS;1;Escudo
+Australia;AUS;2;Mathew Ryan
+Australia;AUS;3;Joe Gauci
+Australia;AUS;4;Harry Souttar
+Australia;AUS;5;Alessandro Circati
+Australia;AUS;6;Jordan Bos
+Australia;AUS;7;Aziz Behich
+Australia;AUS;8;Cameron Burgess
+Australia;AUS;9;Lewis Miller
+Australia;AUS;10;Milos Degenek
+Australia;AUS;11;Jackson Irvine
+Australia;AUS;12;Riley McGree
+Australia;AUS;13;Foto del equipo
+Australia;AUS;14;Aiden O'Neill
+Australia;AUS;15;Connor Metcalfe
+Australia;AUS;16;Patrick Yazbek
+Australia;AUS;17;Craig Goodwin
+Australia;AUS;18;Kusini Yengi
+Australia;AUS;19;Nestory Irankunda
+Australia;AUS;20;Mohamed Touré
+Austria;AUT;1;Escudo
+Austria;AUT;2;Alexander Schlager
+Austria;AUT;3;Patrick Pentz
+Austria;AUT;4;David Alaba
+Austria;AUT;5;Kevin Danso
+Austria;AUT;6;Philipp Lienhart
+Austria;AUT;7;Stefan Posch
+Austria;AUT;8;Philipp Mwene
+Austria;AUT;9;Alexander Prass
+Austria;AUT;10;Xaver Schlager
+Austria;AUT;11;Marcel Sabitzer
+Austria;AUT;12;Konrad Laimer
+Austria;AUT;13;Foto del equipo
+Austria;AUT;14;Florian Grillitsch
+Austria;AUT;15;Nicolas Seiwald
+Austria;AUT;16;Romano Schmid
+Austria;AUT;17;Patrick Wimmer
+Austria;AUT;18;Christoph Baumgartner
+Austria;AUT;19;Michael Gregoritsch
+Austria;AUT;20;Marko Arnautović
+Bélgica;BEL;1;Escudo
+Bélgica;BEL;2;Thibaut Courtois
+Bélgica;BEL;3;Arthur Theate
+Bélgica;BEL;4;Timothy Castagne
+Bélgica;BEL;5;Zeno Debast
+Bélgica;BEL;6;Brandon Mechele
+Bélgica;BEL;7;Maxim De Cuyper
+Bélgica;BEL;8;Thomas Meunier
+Bélgica;BEL;9;Youri Tielemans
+Bélgica;BEL;10;Amadou Onana
+Bélgica;BEL;11;Nicolas Raskin
+Bélgica;BEL;12;Alexis Saelemaekers
+Bélgica;BEL;13;Foto del equipo
+Bélgica;BEL;14;Hans Vanaken
+Bélgica;BEL;15;Kevin De Bruyne
+Bélgica;BEL;16;Jérémy Doku
+Bélgica;BEL;17;Charles De Ketelaere
+Bélgica;BEL;18;Leandro Trossard
+Bélgica;BEL;19;Loïs Openda
+Bélgica;BEL;20;Romelu Lukaku
+Bosnia y Herzegovina;BIH;1;Escudo
+Bosnia y Herzegovina;BIH;2;Nikola Vasilj
+Bosnia y Herzegovina;BIH;3;Amer Dedić
+Bosnia y Herzegovina;BIH;4;Sead Kolašinac
+Bosnia y Herzegovina;BIH;5;Tarik Muharemović
+Bosnia y Herzegovina;BIH;6;Nihad Mujakić
+Bosnia y Herzegovina;BIH;7;Nikola Katić
+Bosnia y Herzegovina;BIH;8;Amir Hadžiahmetović
+Bosnia y Herzegovina;BIH;9;Benjamin Tahirović
+Bosnia y Herzegovina;BIH;10;Armin Gigović
+Bosnia y Herzegovina;BIH;11;Ivan Šunjić
+Bosnia y Herzegovina;BIH;12;Ivan Bašić
+Bosnia y Herzegovina;BIH;13;Foto del equipo
+Bosnia y Herzegovina;BIH;14;Dženis Burnić
+Bosnia y Herzegovina;BIH;15;Esmir Bajraktarević
+Bosnia y Herzegovina;BIH;16;Amar Memić
+Bosnia y Herzegovina;BIH;17;Ermedin Demirović
+Bosnia y Herzegovina;BIH;18;Edin Džeko
+Bosnia y Herzegovina;BIH;19;Samed Baždar
+Bosnia y Herzegovina;BIH;20;Haris Tabaković
+Brasil;BRA;1;Escudo
+Brasil;BRA;2;Alisson
+Brasil;BRA;3;Bento
+Brasil;BRA;4;Marquinhos
+Brasil;BRA;5;Éder Militão
+Brasil;BRA;6;Gabriel Magalhães
+Brasil;BRA;7;Danilo
+Brasil;BRA;8;Wesley
+Brasil;BRA;9;Lucas Paquetá
+Brasil;BRA;10;Casemiro
+Brasil;BRA;11;Bruno Guimarães
+Brasil;BRA;12;Luiz Henrique
+Brasil;BRA;13;Foto del equipo
+Brasil;BRA;14;Vinícius Júnior
+Brasil;BRA;15;Rodrygo
+Brasil;BRA;16;João Pedro
+Brasil;BRA;17;Matheus Cunha
+Brasil;BRA;18;Gabriel Martinelli
+Brasil;BRA;19;Raphinha
+Brasil;BRA;20;Estêvão
+Canadá;CAN;1;Escudo
+Canadá;CAN;2;Dayne St. Clair
+Canadá;CAN;3;Alphonso Davies
+Canadá;CAN;4;Alistair Johnston
+Canadá;CAN;5;Samuel Adekugbe
+Canadá;CAN;6;Richie Laryea
+Canadá;CAN;7;Derek Cornelius
+Canadá;CAN;8;Moïse Bombito
+Canadá;CAN;9;Kamal Miller
+Canadá;CAN;10;Stephen Eustáquio
+Canadá;CAN;11;Ismaël Koné
+Canadá;CAN;12;Jonathan Osorio
+Canadá;CAN;13;Foto del equipo
+Canadá;CAN;14;Jacob Shaffelburg
+Canadá;CAN;15;Mathieu Choinière
+Canadá;CAN;16;Niko Sigur
+Canadá;CAN;17;Tajon Buchanan
+Canadá;CAN;18;Liam Millar
+Canadá;CAN;19;Cyle Larin
+Canadá;CAN;20;Jonathan David
+Costa de Marfil;CIV;1;Escudo
+Costa de Marfil;CIV;2;Yahia Fofana
+Costa de Marfil;CIV;3;Ghislain Konan
+Costa de Marfil;CIV;4;Wilfried Singo
+Costa de Marfil;CIV;5;Odilon Kossounou
+Costa de Marfil;CIV;6;Evan Ndicka
+Costa de Marfil;CIV;7;Willy Boly
+Costa de Marfil;CIV;8;Emmanuel Agbadou
+Costa de Marfil;CIV;9;Ousmane Diomande
+Costa de Marfil;CIV;10;Franck Kessié
+Costa de Marfil;CIV;11;Seko Fofana
+Costa de Marfil;CIV;12;Ibrahim Sangaré
+Costa de Marfil;CIV;13;Foto del equipo
+Costa de Marfil;CIV;14;Jean-Philippe Gbamin
+Costa de Marfil;CIV;15;Amad Diallo
+Costa de Marfil;CIV;16;Sébastien Haller
+Costa de Marfil;CIV;17;Simon Adingra
+Costa de Marfil;CIV;18;Yan Diomandé
+Costa de Marfil;CIV;19;Evann Guessand
+Costa de Marfil;CIV;20;Oumar Diakité
+Congo RD;COD;1;Escudo
+Congo RD;COD;2;Lionel Mpasi
+Congo RD;COD;3;Aaron Wan-Bissaka
+Congo RD;COD;4;Axel Tuanzebe
+Congo RD;COD;5;Arthur Masuaku
+Congo RD;COD;6;Chancel Mbemba
+Congo RD;COD;7;Joris Kayembe
+Congo RD;COD;8;Charles Pickel
+Congo RD;COD;9;Ngal'ayel Mukau
+Congo RD;COD;10;Edo Kayembe
+Congo RD;COD;11;Samuel Moutoussamy
+Congo RD;COD;12;Noah Sadiki
+Congo RD;COD;13;Foto del equipo
+Congo RD;COD;14;Théo Bongonda
+Congo RD;COD;15;Meschak Elia
+Congo RD;COD;16;Yoane Wissa
+Congo RD;COD;17;Brian Cipenga
+Congo RD;COD;18;Fiston Mayele
+Congo RD;COD;19;Cédric Bakambu
+Congo RD;COD;20;Nathanaël Mbuku
+Colombia;COL;1;Escudo
+Colombia;COL;2;Camilo Vargas
+Colombia;COL;3;David Ospina
+Colombia;COL;4;Dávinson Sánchez
+Colombia;COL;5;Yerry Mina
+Colombia;COL;6;Daniel Muñoz
+Colombia;COL;7;Johan Mojica
+Colombia;COL;8;Jhon Lucumí
+Colombia;COL;9;Santiago Arias
+Colombia;COL;10;Jefferson Lerma
+Colombia;COL;11;Kevin Castaño
+Colombia;COL;12;Richard Ríos
+Colombia;COL;13;Foto del equipo
+Colombia;COL;14;James Rodríguez
+Colombia;COL;15;Juan Fernando Quintero
+Colombia;COL;16;Jorge Carrascal
+Colombia;COL;17;Jhon Arias
+Colombia;COL;18;Jhon Córdoba
+Colombia;COL;19;Luis Suárez
+Colombia;COL;20;Luis Díaz
+Cabo Verde;CPV;1;Escudo
+Cabo Verde;CPV;2;Vozinha
+Cabo Verde;CPV;3;Logan Costa
+Cabo Verde;CPV;4;Pico
+Cabo Verde;CPV;5;Diney
+Cabo Verde;CPV;6;Steven Moreira
+Cabo Verde;CPV;7;Wagner Pina
+Cabo Verde;CPV;8;João Paulo
+Cabo Verde;CPV;9;Yannick Semedo
+Cabo Verde;CPV;10;Kevin Pina
+Cabo Verde;CPV;11;Patrick Andrade
+Cabo Verde;CPV;12;Jamiro Monteiro
+Cabo Verde;CPV;13;Foto del equipo
+Cabo Verde;CPV;14;Deroy Duarte
+Cabo Verde;CPV;15;Garry Rodrigues
+Cabo Verde;CPV;16;Jovane Cabral
+Cabo Verde;CPV;17;Ryan Mendes
+Cabo Verde;CPV;18;Dailon Livramento
+Cabo Verde;CPV;19;Willy Semedo
+Cabo Verde;CPV;20;Bebé
+Croacia;CRO;1;Escudo
+Croacia;CRO;2;Dominik Livaković
+Croacia;CRO;3;Duško Ćaleta-Car
+Croacia;CRO;4;Joško Gvardiol
+Croacia;CRO;5;Josip Stanišić
+Croacia;CRO;6;Luka Vušković
+Croacia;CRO;7;Josip Šutalo
+Croacia;CRO;8;Kristijan Jakić
+Croacia;CRO;9;Luka Modrić
+Croacia;CRO;10;Mateo Kovačić
+Croacia;CRO;11;Martin Baturina
+Croacia;CRO;12;Lovro Majer
+Croacia;CRO;13;Foto del equipo
+Croacia;CRO;14;Mario Pašalić
+Croacia;CRO;15;Petar Sučić
+Croacia;CRO;16;Ivan Perišić
+Croacia;CRO;17;Marco Pašalić
+Croacia;CRO;18;Ante Budimir
+Croacia;CRO;19;Andrej Kramarić
+Croacia;CRO;20;Franjo Ivanović
+Curazao;CUW;1;Escudo
+Curazao;CUW;2;Eloy Room
+Curazao;CUW;3;Armando Obispo
+Curazao;CUW;4;Sherel Floranus
+Curazao;CUW;5;Jurien Gaari
+Curazao;CUW;6;Joshua Brenet
+Curazao;CUW;7;Roshon van Eijma
+Curazao;CUW;8;Shurandy Sambo
+Curazao;CUW;9;Livano Comenencia
+Curazao;CUW;10;Godfried Roemeratoe
+Curazao;CUW;11;Juninho Bacuna
+Curazao;CUW;12;Leandro Bacuna
+Curazao;CUW;13;Foto del equipo
+Curazao;CUW;14;Tahith Chong
+Curazao;CUW;15;Kenji Gorré
+Curazao;CUW;16;Jearl Margaritha
+Curazao;CUW;17;Jürgen Locadia
+Curazao;CUW;18;Jeremy Antonisse
+Curazao;CUW;19;Gervane Kastaneer
+Curazao;CUW;20;Sontje Hansen
+República Checa;CZE;1;Escudo
+República Checa;CZE;2;Matěj Kovář
+República Checa;CZE;3;Jindřich Staněk
+República Checa;CZE;4;Ladislav Krejčí
+República Checa;CZE;5;Vladimír Coufal
+República Checa;CZE;6;Jaroslav Zelený
+República Checa;CZE;7;Tomáš Holeš
+República Checa;CZE;8;David Zima
+República Checa;CZE;9;Michal Sadílek
+República Checa;CZE;10;Lukáš Provod
+República Checa;CZE;11;Lukáš Červ
+República Checa;CZE;12;Tomáš Souček
+República Checa;CZE;13;Foto del equipo
+República Checa;CZE;14;Pavel Šulc
+República Checa;CZE;15;Matěj Vydra
+República Checa;CZE;16;Vasil Kušej
+República Checa;CZE;17;Tomáš Chorý
+República Checa;CZE;18;Václav Černý
+República Checa;CZE;19;Adam Hložek
+República Checa;CZE;20;Patrik Schick
+Ecuador;ECU;1;Escudo
+Ecuador;ECU;2;Hernán Galíndez
+Ecuador;ECU;3;Gonzalo Valle
+Ecuador;ECU;4;Piero Hincapié
+Ecuador;ECU;5;Pervis Estupiñán
+Ecuador;ECU;6;Willian Pacho
+Ecuador;ECU;7;Ángelo Preciado
+Ecuador;ECU;8;Joel Ordóñez
+Ecuador;ECU;9;Moisés Caicedo
+Ecuador;ECU;10;Alan Franco
+Ecuador;ECU;11;Kendry Páez
+Ecuador;ECU;12;Pedro Vite
+Ecuador;ECU;13;Foto del equipo
+Ecuador;ECU;14;John Yeboah
+Ecuador;ECU;15;Leonardo Campana
+Ecuador;ECU;16;Gonzalo Plata
+Ecuador;ECU;17;Nilson Angulo
+Ecuador;ECU;18;Alan Minda
+Ecuador;ECU;19;Kevin Rodríguez
+Ecuador;ECU;20;Enner Valencia
+Egipto;EGY;1;Escudo
+Egipto;EGY;2;Mohamed El Shenawy
+Egipto;EGY;3;Mohamed Hany
+Egipto;EGY;4;Mohamed Hamdy
+Egipto;EGY;5;Yasser Ibrahim
+Egipto;EGY;6;Khaled Sobhi
+Egipto;EGY;7;Ramy Rabia
+Egipto;EGY;8;Hossam Abdelmaguid
+Egipto;EGY;9;Ahmed Fattouh
+Egipto;EGY;10;Marwan Attia
+Egipto;EGY;11;Zizo
+Egipto;EGY;12;Hamdy Fathy
+Egipto;EGY;13;Foto del equipo
+Egipto;EGY;14;Mohamed Magdy
+Egipto;EGY;15;Emam Ashour
+Egipto;EGY;16;Osama Faisal
+Egipto;EGY;17;Mohamed Salah
+Egipto;EGY;18;Mostafa Mohamed
+Egipto;EGY;19;Trézéguet
+Egipto;EGY;20;Omar Marmoush
+Inglaterra;ENG;1;Escudo
+Inglaterra;ENG;2;Jordan Pickford
+Inglaterra;ENG;3;John Stones
+Inglaterra;ENG;4;Marc Guéhi
+Inglaterra;ENG;5;Ezri Konsa
+Inglaterra;ENG;6;Trent Alexander-Arnold
+Inglaterra;ENG;7;Reece James
+Inglaterra;ENG;8;Dan Burn
+Inglaterra;ENG;9;Jordan Henderson
+Inglaterra;ENG;10;Declan Rice
+Inglaterra;ENG;11;Jude Bellingham
+Inglaterra;ENG;12;Cole Palmer
+Inglaterra;ENG;13;Foto del equipo
+Inglaterra;ENG;14;Morgan Rogers
+Inglaterra;ENG;15;Anthony Gordon
+Inglaterra;ENG;16;Phil Foden
+Inglaterra;ENG;17;Bukayo Saka
+Inglaterra;ENG;18;Harry Kane
+Inglaterra;ENG;19;Marcus Rashford
+Inglaterra;ENG;20;Ollie Watkins
+España;ESP;1;Escudo
+España;ESP;2;Unai Simón
+España;ESP;3;Robin Le Normand
+España;ESP;4;Aymeric Laporte
+España;ESP;5;Dean Huijsen
+España;ESP;6;Pedro Porro
+España;ESP;7;Dani Carvajal
+España;ESP;8;Marc Cucurella
+España;ESP;9;Martín Zubimendi
+España;ESP;10;Rodri
+España;ESP;11;Pedri
+España;ESP;12;Fabián Ruiz
+España;ESP;13;Foto del equipo
+España;ESP;14;Mikel Merino
+España;ESP;15;Lamine Yamal
+España;ESP;16;Dani Olmo
+España;ESP;17;Nico Williams
+España;ESP;18;Ferran Torres
+España;ESP;19;Álvaro Morata
+España;ESP;20;Mikel Oyarzabal
+Francia;FRA;1;Escudo
+Francia;FRA;2;Mike Maignan
+Francia;FRA;3;Theo Hernández
+Francia;FRA;4;William Saliba
+Francia;FRA;5;Jules Koundé
+Francia;FRA;6;Ibrahima Konaté
+Francia;FRA;7;Dayot Upamecano
+Francia;FRA;8;Lucas Digne
+Francia;FRA;9;Aurélien Tchouaméni
+Francia;FRA;10;Eduardo Camavinga
+Francia;FRA;11;Manu Koné
+Francia;FRA;12;Adrien Rabiot
+Francia;FRA;13;Foto del equipo
+Francia;FRA;14;Michael Olise
+Francia;FRA;15;Ousmane Dembélé
+Francia;FRA;16;Bradley Barcola
+Francia;FRA;17;Désiré Doué
+Francia;FRA;18;Kingsley Coman
+Francia;FRA;19;Hugo Ekitike
+Francia;FRA;20;Kylian Mbappé
+Alemania;GER;1;Escudo
+Alemania;GER;2;Marc-André ter Stegen
+Alemania;GER;3;Jonathan Tah
+Alemania;GER;4;David Raum
+Alemania;GER;5;Nico Schlotterbeck
+Alemania;GER;6;Antonio Rüdiger
+Alemania;GER;7;Waldemar Anton
+Alemania;GER;8;Ridle Baku
+Alemania;GER;9;Maximilian Mittelstädt
+Alemania;GER;10;Joshua Kimmich
+Alemania;GER;11;Florian Wirtz
+Alemania;GER;12;Felix Nmecha
+Alemania;GER;13;Foto del equipo
+Alemania;GER;14;Leon Goretzka
+Alemania;GER;15;Jamal Musiala
+Alemania;GER;16;Serge Gnabry
+Alemania;GER;17;Kai Havertz
+Alemania;GER;18;Leroy Sané
+Alemania;GER;19;Karim Adeyemi
+Alemania;GER;20;Nick Woltemade
+Ghana;GHA;1;Escudo
+Ghana;GHA;2;Lawrence Ati-Zigi
+Ghana;GHA;3;Tariq Lamptey
+Ghana;GHA;4;Mohammed Salisu
+Ghana;GHA;5;Alidu Seidu
+Ghana;GHA;6;Alexander Djiku
+Ghana;GHA;7;Gideon Mensah
+Ghana;GHA;8;Caleb Yirenkyi
+Ghana;GHA;9;Abdul Fatawu Issahaku
+Ghana;GHA;10;Thomas Partey
+Ghana;GHA;11;Salis Abdul Samed
+Ghana;GHA;12;Kamaldeen Sulemana
+Ghana;GHA;13;Foto del equipo
+Ghana;GHA;14;Mohammed Kudus
+Ghana;GHA;15;Iñaki Williams
+Ghana;GHA;16;Jordan Ayew
+Ghana;GHA;17;André Ayew
+Ghana;GHA;18;Joseph Paintsil
+Ghana;GHA;19;Osman Bukari
+Ghana;GHA;20;Antoine Semenyo
+Haití;HAI;1;Escudo
+Haití;HAI;2;Johny Placide
+Haití;HAI;3;Carlens Arcus
+Haití;HAI;4;Martin Expérience
+Haití;HAI;5;Jean-Kévin Duverne
+Haití;HAI;6;Ricardo Adé
+Haití;HAI;7;Duke Lacroix
+Haití;HAI;8;Garven Metusala
+Haití;HAI;9;Hannes Delcroix
+Haití;HAI;10;Leverton Pierre
+Haití;HAI;11;Danley Jean Jacques
+Haití;HAI;12;Jean-Ricner Bellegarde
+Haití;HAI;13;Foto del equipo
+Haití;HAI;14;Christopher Attys
+Haití;HAI;15;Derrick Etienne Jr.
+Haití;HAI;16;Josué Casimir
+Haití;HAI;17;Rubén Providence
+Haití;HAI;18;Duckens Nazon
+Haití;HAI;19;Louicius Deedson
+Haití;HAI;20;Frantzdy Pierrot
+Irán;IRN;1;Escudo
+Irán;IRN;2;Alireza Beiranvand
+Irán;IRN;3;Morteza Pouraliganji
+Irán;IRN;4;Ehsan Hajsafi
+Irán;IRN;5;Milad Mohammadi
+Irán;IRN;6;Shojae Khalilzadeh
+Irán;IRN;7;Ramin Rezaeian
+Irán;IRN;8;Hossein Kanaani
+Irán;IRN;9;Sadegh Moharrami
+Irán;IRN;10;Saleh Hardani
+Irán;IRN;11;Saeed Ezatolahi
+Irán;IRN;12;Saman Ghoddos
+Irán;IRN;13;Foto del equipo
+Irán;IRN;14;Omid Noorafkan
+Irán;IRN;15;Roozbeh Cheshmi
+Irán;IRN;16;Mohammad Mohebi
+Irán;IRN;17;Sardar Azmoun
+Irán;IRN;18;Mehdi Taremi
+Irán;IRN;19;Alireza Jahanbakhsh
+Irán;IRN;20;Ali Gholizadeh
+Irak;IRQ;1;Escudo
+Irak;IRQ;2;Jalal Hassan
+Irak;IRQ;3;Rebin Sulaka
+Irak;IRQ;4;Hussein Ali
+Irak;IRQ;5;Akam Hashim
+Irak;IRQ;6;Merchas Doski
+Irak;IRQ;7;Zaid Tahseen
+Irak;IRQ;8;Manaf Younis
+Irak;IRQ;9;Zidane Iqbal
+Irak;IRQ;10;Amir Al-Ammari
+Irak;IRQ;11;Ibrahim Bayesh
+Irak;IRQ;12;Ali Jasim
+Irak;IRQ;13;Foto del equipo
+Irak;IRQ;14;Youssef Amyn
+Irak;IRQ;15;Aimar Sher
+Irak;IRQ;16;Marko Farji
+Irak;IRQ;17;Osama Rashid
+Irak;IRQ;18;Ali Al-Hamadi
+Irak;IRQ;19;Aymen Hussein
+Irak;IRQ;20;Mohanad Ali
+Jordania;JOR;1;Escudo
+Jordania;JOR;2;Yazeed Abulaila
+Jordania;JOR;3;Ihsan Haddad
+Jordania;JOR;4;Mohammad Abu Hashish
+Jordania;JOR;5;Yazan Al-Arab
+Jordania;JOR;6;Abdallah Nasib
+Jordania;JOR;7;Saleem Obaid
+Jordania;JOR;8;Mohammad Abualnadi
+Jordania;JOR;9;Ibrahim Saadeh
+Jordania;JOR;10;Nizar Al-Rashdan
+Jordania;JOR;11;Noor Al-Rawabdeh
+Jordania;JOR;12;Mohannad Abu Taha
+Jordania;JOR;13;Foto del equipo
+Jordania;JOR;14;Amer Jamous
+Jordania;JOR;15;Mousa Al-Taamari
+Jordania;JOR;16;Yazan Al-Naimat
+Jordania;JOR;17;Mahmoud Al-Mardi
+Jordania;JOR;18;Ali Olwan
+Jordania;JOR;19;Mohammad Abu Zrayq
+Jordania;JOR;20;Ibrahim Sabra
+Japón;JPN;1;Escudo
+Japón;JPN;2;Zion Suzuki
+Japón;JPN;3;Henry Heroki Mochizuki
+Japón;JPN;4;Ayumu Seko
+Japón;JPN;5;Junnosuke Suzuki
+Japón;JPN;6;Shogo Taniguchi
+Japón;JPN;7;Tsuyoshi Watanabe
+Japón;JPN;8;Kaishu Sano
+Japón;JPN;9;Yuki Soma
+Japón;JPN;10;Ao Tanaka
+Japón;JPN;11;Daichi Kamada
+Japón;JPN;12;Takefusa Kubo
+Japón;JPN;13;Foto del equipo
+Japón;JPN;14;Ritsu Dōan
+Japón;JPN;15;Keito Nakamura
+Japón;JPN;16;Takumi Minamino
+Japón;JPN;17;Shuto Machino
+Japón;JPN;18;Junya Ito
+Japón;JPN;19;Koki Ogawa
+Japón;JPN;20;Ayase Ueda
+Corea del Sur;KOR;1;Escudo
+Corea del Sur;KOR;2;Hyeon-woo Jo
+Corea del Sur;KOR;3;Seung-gyu Kim
+Corea del Sur;KOR;4;Min-jae Kim
+Corea del Sur;KOR;5;Yoo-min Cho
+Corea del Sur;KOR;6;Young-woo Seol
+Corea del Sur;KOR;7;Han-beom Lee
+Corea del Sur;KOR;8;Tae-seok Lee
+Corea del Sur;KOR;9;Myung-jae Lee
+Corea del Sur;KOR;10;Jae-sung Lee
+Corea del Sur;KOR;11;In-beom Hwang
+Corea del Sur;KOR;12;Kang-in Lee
+Corea del Sur;KOR;13;Foto del equipo
+Corea del Sur;KOR;14;Seung-ho Paik
+Corea del Sur;KOR;15;Jens Castrop
+Corea del Sur;KOR;16;Dong-kyung Lee
+Corea del Sur;KOR;17;Gue-sung Cho
+Corea del Sur;KOR;18;Heung-min Son
+Corea del Sur;KOR;19;Hee-chan Hwang
+Corea del Sur;KOR;20;Hyeon-gyu Oh
+Arabia Saudita;KSA;1;Escudo
+Arabia Saudita;KSA;2;Nawaf Alaqidi
+Arabia Saudita;KSA;3;Abdulrahman Al-Sanbi
+Arabia Saudita;KSA;4;Saud Abdulhamid
+Arabia Saudita;KSA;5;Nawaf Boushal
+Arabia Saudita;KSA;6;Jihad Thakri
+Arabia Saudita;KSA;7;Moteb Al-Harbi
+Arabia Saudita;KSA;8;Hassan Al-Tambakti
+Arabia Saudita;KSA;9;Musab Al-Juwayr
+Arabia Saudita;KSA;10;Ziyad Al-Johani
+Arabia Saudita;KSA;11;Abdullah Al-Khaibari
+Arabia Saudita;KSA;12;Nasser Al-Dawsari
+Arabia Saudita;KSA;13;Foto del equipo
+Arabia Saudita;KSA;14;Saleh Abu Al-Shamat
+Arabia Saudita;KSA;15;Marwan Al-Sahafi
+Arabia Saudita;KSA;16;Salem Al-Dawsari
+Arabia Saudita;KSA;17;Abdulrahman Al-Aboud
+Arabia Saudita;KSA;18;Firas Al-Buraikan
+Arabia Saudita;KSA;19;Saleh Al-Shehri
+Arabia Saudita;KSA;20;Abdullah Al-Hamdan
+Marruecos;MAR;1;Escudo
+Marruecos;MAR;2;Yassine Bounou
+Marruecos;MAR;3;Munir El Kajoui
+Marruecos;MAR;4;Achraf Hakimi
+Marruecos;MAR;5;Noussair Mazraoui
+Marruecos;MAR;6;Nayef Aguerd
+Marruecos;MAR;7;Romain Saïss
+Marruecos;MAR;8;Jawad El Yamiq
+Marruecos;MAR;9;Adam Masina
+Marruecos;MAR;10;Sofyan Amrabat
+Marruecos;MAR;11;Azzedine Ounahi
+Marruecos;MAR;12;Eliesse Ben Seghir
+Marruecos;MAR;13;Foto del equipo
+Marruecos;MAR;14;Bilal El Khannouss
+Marruecos;MAR;15;Ismael Saibari
+Marruecos;MAR;16;Youssef En-Nesyri
+Marruecos;MAR;17;Abde Ezzalzouli
+Marruecos;MAR;18;Soufiane Rahimi
+Marruecos;MAR;19;Brahim Díaz
+Marruecos;MAR;20;Ayoub El Kaabi
+México;MEX;1;Escudo
+México;MEX;2;Luis Malagón
+México;MEX;3;Johan Vásquez
+México;MEX;4;Jorge Sánchez
+México;MEX;5;César Montes
+México;MEX;6;Jesús Gallardo
+México;MEX;7;Israel Reyes
+México;MEX;8;Diego Laínez
+México;MEX;9;Carlos Rodríguez
+México;MEX;10;Edson Álvarez
+México;MEX;11;Orbelín Pineda
+México;MEX;12;Marcel Ruiz
+México;MEX;13;Foto del equipo
+México;MEX;14;Érick Sánchez
+México;MEX;15;Hirving Lozano
+México;MEX;16;Santiago Giménez
+México;MEX;17;Raúl Jiménez
+México;MEX;18;Alexis Vega
+México;MEX;19;Roberto Alvarado
+México;MEX;20;César Huerta
+Países Bajos;NED;1;Escudo
+Países Bajos;NED;2;Bart Verbruggen
+Países Bajos;NED;3;Virgil van Dijk
+Países Bajos;NED;4;Micky van de Ven
+Países Bajos;NED;5;Jurrien Timber
+Países Bajos;NED;6;Denzel Dumfries
+Países Bajos;NED;7;Nathan Aké
+Países Bajos;NED;8;Jeremie Frimpong
+Países Bajos;NED;9;Jan Paul van Hecke
+Países Bajos;NED;10;Tijjani Reijnders
+Países Bajos;NED;11;Ryan Gravenberch
+Países Bajos;NED;12;Teun Koopmeiners
+Países Bajos;NED;13;Foto del equipo
+Países Bajos;NED;14;Frenkie de Jong
+Países Bajos;NED;15;Xavi Simons
+Países Bajos;NED;16;Justin Kluivert
+Países Bajos;NED;17;Memphis Depay
+Países Bajos;NED;18;Donyell Malen
+Países Bajos;NED;19;Wout Weghorst
+Países Bajos;NED;20;Cody Gakpo
+Noruega;NOR;1;Escudo
+Noruega;NOR;2;Ørjan Nyland
+Noruega;NOR;3;Julian Ryerson
+Noruega;NOR;4;Leo Østigård
+Noruega;NOR;5;Kristoffer Vassbakk Ajer
+Noruega;NOR;6;Marcus Holmgren Pedersen
+Noruega;NOR;7;David Møller Wolfe
+Noruega;NOR;8;Torbjørn Heggem
+Noruega;NOR;9;Morten Thorsby
+Noruega;NOR;10;Martin Ødegaard
+Noruega;NOR;11;Sander Berge
+Noruega;NOR;12;Andreas Schjelderup
+Noruega;NOR;13;Foto del equipo
+Noruega;NOR;14;Patrick Berg
+Noruega;NOR;15;Erling Haaland
+Noruega;NOR;16;Alexander Sørloth
+Noruega;NOR;17;Aron Dønnum
+Noruega;NOR;18;Jørgen Strand Larsen
+Noruega;NOR;19;Antonio Nusa
+Noruega;NOR;20;Oscar Bobb
+Nueva Zelanda;NZL;1;Escudo
+Nueva Zelanda;NZL;2;Max Crocombe
+Nueva Zelanda;NZL;3;Alex Paulsen
+Nueva Zelanda;NZL;4;Michael Boxall
+Nueva Zelanda;NZL;5;Liberato Cacace
+Nueva Zelanda;NZL;6;Tim Payne
+Nueva Zelanda;NZL;7;Tyler Bindon
+Nueva Zelanda;NZL;8;Francis de Vries
+Nueva Zelanda;NZL;9;Finn Surman
+Nueva Zelanda;NZL;10;Joe Bell
+Nueva Zelanda;NZL;11;Sarpreet Singh
+Nueva Zelanda;NZL;12;Ryan Thomas
+Nueva Zelanda;NZL;13;Foto del equipo
+Nueva Zelanda;NZL;14;Matthew Garbett
+Nueva Zelanda;NZL;15;Marko Stamenić
+Nueva Zelanda;NZL;16;Ben Old
+Nueva Zelanda;NZL;17;Chris Wood
+Nueva Zelanda;NZL;18;Elijah Just
+Nueva Zelanda;NZL;19;Callum McCowatt
+Nueva Zelanda;NZL;20;Kosta Barbarouses
+Panamá;PAN;1;Escudo
+Panamá;PAN;2;Orlando Mosquera
+Panamá;PAN;3;Luis Mejía
+Panamá;PAN;4;Fidel Escobar
+Panamá;PAN;5;Andrés Andrade
+Panamá;PAN;6;Michael Amir Murillo
+Panamá;PAN;7;Eric Davis
+Panamá;PAN;8;José Córdoba
+Panamá;PAN;9;César Blackman
+Panamá;PAN;10;Cristian Martínez
+Panamá;PAN;11;Aníbal Godoy
+Panamá;PAN;12;Adalberto Carrasquilla
+Panamá;PAN;13;Foto del equipo
+Panamá;PAN;14;Édgar Bárcenas
+Panamá;PAN;15;Carlos Harvey
+Panamá;PAN;16;Ismael Díaz
+Panamá;PAN;17;José Fajardo
+Panamá;PAN;18;Cecilio Waterman
+Panamá;PAN;19;José Luis Rodríguez
+Panamá;PAN;20;Alberto Quintero
+Paraguay;PAR;1;Escudo
+Paraguay;PAR;2;Roberto Fernández
+Paraguay;PAR;3;Orlando Gill
+Paraguay;PAR;4;Gustavo Gómez
+Paraguay;PAR;5;Fabián Balbuena
+Paraguay;PAR;6;Juan José Cáceres
+Paraguay;PAR;7;Omar Alderete
+Paraguay;PAR;8;Junior Alonso
+Paraguay;PAR;9;Mathías Villasanti
+Paraguay;PAR;10;Diego Gómez
+Paraguay;PAR;11;Damián Bobadilla
+Paraguay;PAR;12;Andrés Cubas
+Paraguay;PAR;13;Foto del equipo
+Paraguay;PAR;14;Matías Galarza Fonda
+Paraguay;PAR;15;Julio Enciso
+Paraguay;PAR;16;Alejandro Romero Gamarra
+Paraguay;PAR;17;Miguel Almirón
+Paraguay;PAR;18;Ramón Sosa
+Paraguay;PAR;19;Ángel Romero
+Paraguay;PAR;20;Antonio Sanabria
+Portugal;POR;1;Escudo
+Portugal;POR;2;Diogo Costa
+Portugal;POR;3;José Sá
+Portugal;POR;4;Rúben Dias
+Portugal;POR;5;João Cancelo
+Portugal;POR;6;Diogo Dalot
+Portugal;POR;7;Nuno Mendes
+Portugal;POR;8;Gonçalo Inácio
+Portugal;POR;9;Bernardo Silva
+Portugal;POR;10;Bruno Fernandes
+Portugal;POR;11;Rúben Neves
+Portugal;POR;12;Vitinha
+Portugal;POR;13;Foto del equipo
+Portugal;POR;14;João Neves
+Portugal;POR;15;Cristiano Ronaldo
+Portugal;POR;16;Francisco Trincão
+Portugal;POR;17;João Félix
+Portugal;POR;18;Gonçalo Ramos
+Portugal;POR;19;Pedro Neto
+Portugal;POR;20;Rafael Leão
+Catar;QAT;1;Escudo
+Catar;QAT;2;Meshaal Barsham
+Catar;QAT;3;Sultan Al Brake
+Catar;QAT;4;Lucas Mendes
+Catar;QAT;5;Homam Ahmed
+Catar;QAT;6;Boualem Khoukhi
+Catar;QAT;7;Pedro Miguel
+Catar;QAT;8;Tarek Salman
+Catar;QAT;9;Mohamed Al-Mannai
+Catar;QAT;10;Karim Boudiaf
+Catar;QAT;11;Assim Madibo
+Catar;QAT;12;Ahmed Fatehi
+Catar;QAT;13;Foto del equipo
+Catar;QAT;14;Mohammed Waad
+Catar;QAT;15;Abdulaziz Hatem
+Catar;QAT;16;Hassan Al-Haydos
+Catar;QAT;17;Edmilson Junior
+Catar;QAT;18;Akram Afif
+Catar;QAT;19;Ahmed Al Ganehi
+Catar;QAT;20;Almoez Ali
+Sudáfrica;RSA;1;Escudo
+Sudáfrica;RSA;2;Ronwen Williams
+Sudáfrica;RSA;3;Sipho Chaine
+Sudáfrica;RSA;4;Aubrey Modiba
+Sudáfrica;RSA;5;Samukele Kabini
+Sudáfrica;RSA;6;Mbekezeli Mbokazi
+Sudáfrica;RSA;7;Khulumani Ndamane
+Sudáfrica;RSA;8;Siyabonga Ngezana
+Sudáfrica;RSA;9;Khuliso Mudau
+Sudáfrica;RSA;10;Nkosinathi Sibisi
+Sudáfrica;RSA;11;Teboho Mokoena
+Sudáfrica;RSA;12;Thalente Mbatha
+Sudáfrica;RSA;13;Foto del equipo
+Sudáfrica;RSA;14;Bathusi Aubaas
+Sudáfrica;RSA;15;Yaya Sithole
+Sudáfrica;RSA;16;Sipho Mbule
+Sudáfrica;RSA;17;Lyle Foster
+Sudáfrica;RSA;18;Iqraam Rayners
+Sudáfrica;RSA;19;Mohau Nkota
+Sudáfrica;RSA;20;Oswin Appollis
+Escocia;SCO;1;Escudo
+Escocia;SCO;2;Angus Gunn
+Escocia;SCO;3;Jack Hendry
+Escocia;SCO;4;Kieran Tierney
+Escocia;SCO;5;Aaron Hickey
+Escocia;SCO;6;Andrew Robertson
+Escocia;SCO;7;Scott McKenna
+Escocia;SCO;8;John Souttar
+Escocia;SCO;9;Anthony Ralston
+Escocia;SCO;10;Grant Hanley
+Escocia;SCO;11;Scott McTominay
+Escocia;SCO;12;Billy Gilmour
+Escocia;SCO;13;Foto del equipo
+Escocia;SCO;14;Lewis Ferguson
+Escocia;SCO;15;Ryan Christie
+Escocia;SCO;16;Kenny McLean
+Escocia;SCO;17;John McGinn
+Escocia;SCO;18;Lyndon Dykes
+Escocia;SCO;19;Che Adams
+Escocia;SCO;20;Ben Doak
+Senegal;SEN;1;Escudo
+Senegal;SEN;2;Édouard Mendy
+Senegal;SEN;3;Yehvann Diouf
+Senegal;SEN;4;Moussa Niakhaté
+Senegal;SEN;5;Abdoulaye Seck
+Senegal;SEN;6;Ismaïl Jakobs
+Senegal;SEN;7;El Hadji Malick Diouf
+Senegal;SEN;8;Kalidou Koulibaly
+Senegal;SEN;9;Idrissa Gana Gueye
+Senegal;SEN;10;Pape Matar Sarr
+Senegal;SEN;11;Pape Gueye
+Senegal;SEN;12;Habib Diarra
+Senegal;SEN;13;Foto del equipo
+Senegal;SEN;14;Lamine Camara
+Senegal;SEN;15;Sadio Mané
+Senegal;SEN;16;Ismaïla Sarr
+Senegal;SEN;17;Boulaye Dia
+Senegal;SEN;18;Iliman Ndiaye
+Senegal;SEN;19;Nicolas Jackson
+Senegal;SEN;20;Krépin Diatta
+Suiza;SUI;1;Escudo
+Suiza;SUI;2;Gregor Kobel
+Suiza;SUI;3;Yvon Mvogo
+Suiza;SUI;4;Manuel Akanji
+Suiza;SUI;5;Ricardo Rodríguez
+Suiza;SUI;6;Nico Elvedi
+Suiza;SUI;7;Aurèle Amenda
+Suiza;SUI;8;Silvan Widmer
+Suiza;SUI;9;Granit Xhaka
+Suiza;SUI;10;Denis Zakaria
+Suiza;SUI;11;Remo Freuler
+Suiza;SUI;12;Fabian Rieder
+Suiza;SUI;13;Foto del equipo
+Suiza;SUI;14;Ardon Jashari
+Suiza;SUI;15;Johan Manzambi
+Suiza;SUI;16;Michel Aebischer
+Suiza;SUI;17;Breel Embolo
+Suiza;SUI;18;Rubén Vargas
+Suiza;SUI;19;Dan Ndoye
+Suiza;SUI;20;Zeki Amdouni
+Suecia;SWE;1;Escudo
+Suecia;SWE;2;Victor Johansson
+Suecia;SWE;3;Isak Hien
+Suecia;SWE;4;Gabriel Gudmundsson
+Suecia;SWE;5;Emil Holm
+Suecia;SWE;6;Victor Nilsson Lindelöf
+Suecia;SWE;7;Gustaf Lagerbielke
+Suecia;SWE;8;Lucas Bergvall
+Suecia;SWE;9;Hugo Larsson
+Suecia;SWE;10;Jesper Karlström
+Suecia;SWE;11;Yasin Ayari
+Suecia;SWE;12;Mattias Svanberg
+Suecia;SWE;13;Foto del equipo
+Suecia;SWE;14;Daniel Svensson
+Suecia;SWE;15;Ken Sema
+Suecia;SWE;16;Roony Bardghji
+Suecia;SWE;17;Dejan Kulusevski
+Suecia;SWE;18;Anthony Elanga
+Suecia;SWE;19;Alexander Isak
+Suecia;SWE;20;Viktor Gyökeres
+Túnez;TUN;1;Escudo
+Túnez;TUN;2;Béchir Ben Saïd
+Túnez;TUN;3;Aymen Dahmen
+Túnez;TUN;4;Van Valery
+Túnez;TUN;5;Montassar Talbi
+Túnez;TUN;6;Yassine Meriah
+Túnez;TUN;7;Ali Abdi
+Túnez;TUN;8;Dylan Bronn
+Túnez;TUN;9;Ellyes Skhiri
+Túnez;TUN;10;Aïssa Laïdouni
+Túnez;TUN;11;Ferjani Sassi
+Túnez;TUN;12;Mohamed Ali Ben Romdhane
+Túnez;TUN;13;Foto del equipo
+Túnez;TUN;14;Hannibal Mejbri
+Túnez;TUN;15;Elias Achouri
+Túnez;TUN;16;Elias Saad
+Túnez;TUN;17;Hazem Mastouri
+Túnez;TUN;18;Ismaël Gharbi
+Túnez;TUN;19;Sayfallah Ltaief
+Túnez;TUN;20;Naïm Sliti
+Turquía;TUR;1;Escudo
+Turquía;TUR;2;Uğurcan Çakır
+Turquía;TUR;3;Mert Müldür
+Turquía;TUR;4;Zeki Çelik
+Turquía;TUR;5;Abdülkerim Bardakcı
+Turquía;TUR;6;Çağlar Söyüncü
+Turquía;TUR;7;Merih Demiral
+Turquía;TUR;8;Ferdi Kadıoğlu
+Turquía;TUR;9;Kaan Ayhan
+Turquía;TUR;10;İsmail Yüksek
+Turquía;TUR;11;Hakan Çalhanoğlu
+Turquía;TUR;12;Orkun Kökçü
+Turquía;TUR;13;Foto del equipo
+Turquía;TUR;14;Arda Güler
+Turquía;TUR;15;İrfan Can Kahveci
+Turquía;TUR;16;Yunus Akgün
+Turquía;TUR;17;Can Uzun
+Turquía;TUR;18;Barış Alper Yılmaz
+Turquía;TUR;19;Kerem Aktürkoğlu
+Turquía;TUR;20;Kenan Yıldız
+Uruguay;URU;1;Escudo
+Uruguay;URU;2;Sergio Rochet
+Uruguay;URU;3;Santiago Mele
+Uruguay;URU;4;Ronald Araújo
+Uruguay;URU;5;José María Giménez
+Uruguay;URU;6;Sebastián Cáceres
+Uruguay;URU;7;Mathías Olivera
+Uruguay;URU;8;Guillermo Varela
+Uruguay;URU;9;Nahitan Nández
+Uruguay;URU;10;Federico Valverde
+Uruguay;URU;11;Giorgian De Arrascaeta
+Uruguay;URU;12;Rodrigo Bentancur
+Uruguay;URU;13;Foto del equipo
+Uruguay;URU;14;Manuel Ugarte
+Uruguay;URU;15;Nicolás de la Cruz
+Uruguay;URU;16;Maxi Araújo
+Uruguay;URU;17;Darwin Núñez
+Uruguay;URU;18;Federico Viñas
+Uruguay;URU;19;Rodrigo Aguirre
+Uruguay;URU;20;Facundo Pellistri
+Estados Unidos;USA;1;Escudo
+Estados Unidos;USA;2;Matt Freese
+Estados Unidos;USA;3;Chris Richards
+Estados Unidos;USA;4;Tim Ream
+Estados Unidos;USA;5;Mark McKenzie
+Estados Unidos;USA;6;Alex Freeman
+Estados Unidos;USA;7;Antonee Robinson
+Estados Unidos;USA;8;Tyler Adams
+Estados Unidos;USA;9;Tanner Tessmann
+Estados Unidos;USA;10;Weston McKennie
+Estados Unidos;USA;11;Christian Roldan
+Estados Unidos;USA;12;Timothy Weah
+Estados Unidos;USA;13;Foto del equipo
+Estados Unidos;USA;14;Diego Luna
+Estados Unidos;USA;15;Malik Tillman
+Estados Unidos;USA;16;Christian Pulisic
+Estados Unidos;USA;17;Brenden Aaronson
+Estados Unidos;USA;18;Ricardo Pepi
+Estados Unidos;USA;19;Haji Wright
+Estados Unidos;USA;20;Folarin Balogun
+Uzbekistán;UZB;1;Escudo
+Uzbekistán;UZB;2;Utkir Yusupov
+Uzbekistán;UZB;3;Farrukh Sayfiev
+Uzbekistán;UZB;4;Sherzod Nasrullaev
+Uzbekistán;UZB;5;Umar Eshmurodov
+Uzbekistán;UZB;6;Husniddin Aliqulov
+Uzbekistán;UZB;7;Rustamjon Ashurmatov
+Uzbekistán;UZB;8;Khojiakbar Alijonov
+Uzbekistán;UZB;9;Abdukodir Khusanov
+Uzbekistán;UZB;10;Odiljon Hamrobekov
+Uzbekistán;UZB;11;Otabek Shukurov
+Uzbekistán;UZB;12;Jamshid Iskanderov
+Uzbekistán;UZB;13;Foto del equipo
+Uzbekistán;UZB;14;Azizbek Turgunboev
+Uzbekistán;UZB;15;Khojimat Erkinov
+Uzbekistán;UZB;16;Eldor Shomurodov
+Uzbekistán;UZB;17;Oston Urunov
+Uzbekistán;UZB;18;Jaloliddin Masharipov
+Uzbekistán;UZB;19;Igor Sergeev
+Uzbekistán;UZB;20;Abbosbek Fayzullaev
+
+[SECCIÓN ESPECIAL FWC]
+Número de Lámina;Nombre de Lámina
+00;Panini Logo
+FWC-1;Official Emblem - Part 1
+FWC-2;Official Emblem - Part 2
+FWC-3;Official Mascots
+FWC-4;Official Slogan
+FWC-5;Official Ball
+FWC-6;Canada (Host Country Emblem)
+FWC-7;Mexico (Host Country Emblem)
+FWC-8;USA (Host Country Emblem)
+FWC-9;Team Photo (Italy 1934) - FIFA World Cup Italy 1934
+FWC-10;Team Photo (Uruguay 1950) - FIFA World Cup Brazil 1950
+FWC-11;Team Photo (West Germany 1954) - FIFA World Cup Switzerland 1954
+FWC-12;Team Photo (Brazil 1962) - FIFA World Cup Chile 1962
+FWC-13;Team Photo (West Germany 1974) - FIFA World Cup 1974
+FWC-14;Team Photo (Argentina 1986) - FIFA World Cup Mexico 1986
+FWC-15;Team Photo (Brazil 1994) - FIFA World Cup USA 1994
+FWC-16;Team Photo (Brazil 2002) - FIFA World Cup Korea/Japan 2002
+FWC-17;Team Photo (Italy 2006) - FIFA World Cup Germany 2006
+FWC-18;Team Photo (Germany 2014) - FIFA World Cup Brazil 2014
+FWC-19;Team Photo (Argentina 2022) - FIFA World Cup Qatar 2022
+
+[SECCIÓN ESPECIAL COCA-COLA LATINOAMÉRICA / CHILE]
+País;Código País;Número de Lámina;Nombre
+España;ESP;CC-1;Lamine Yamal
+Alemania;GER;CC-2;Joshua Kimmich
+Inglaterra;ENG;CC-3;Harry Kane
+México;MEX;CC-4;Santiago Giménez
+Croacia;CRO;CC-5;Joško Gvardiol
+Uruguay;URU;CC-6;Federico Valverde
+Colombia;COL;CC-7;Jefferson Lerma
+Ecuador;ECU;CC-8;Enner Valencia
+Brasil;BRA;CC-9;Gabriel Magalhães
+Países Bajos;NED;CC-10;Virgil van Dijk
+Canadá;CAN;CC-11;Alphonso Davies
+Argentina;ARG;CC-12;Emiliano Martínez
+México;MEX;CC-13;Raúl Jiménez
+Argentina;ARG;CC-14;Lautaro Martínez
