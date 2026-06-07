@@ -5,823 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Álbum FIFA 2026</title>
   <style>
-    :root {
-      --bg: #07111f;
-      --panel: #0f1f35;
-      --text: #f4f7fb;
-      --muted: #9fb2ce;
-      --line: rgba(255,255,255,.12);
-      --accent: #35c2ff;
-      --owned: #20c997;
-      --dup: #ffd166;
-      --danger: #ff6b6b;
-      --shadow: 0 18px 40px rgba(0,0,0,.28);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #17365f 0%, var(--bg) 42%, #040914 100%);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    header {
-      padding: 24px 16px 10px;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(28px, 6vw, 52px);
-      line-height: 1.05;
-      letter-spacing: -1px;
-    }
-
-    .subtitle {
-      margin: 10px auto 0;
-      color: var(--muted);
-      max-width: 760px;
-      font-size: 15px;
-    }
-
-    main {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      padding: 14px;
-    }
-
-    .panel {
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 16px;
-      backdrop-filter: blur(10px);
-    }
-
-    .sync-box {
-      display: grid;
-      gap: 8px;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .sync-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .badge.online { border-color: rgba(32,201,151,.6); }
-    .badge.offline { border-color: rgba(255,107,107,.55); }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .stat, .filter-card, .country, .data-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 14px;
-    }
-
-    .stat { min-height: 92px; }
-
-    .stat strong {
-      display: block;
-      font-size: clamp(25px, 5vw, 40px);
-      line-height: 1;
-    }
-
-    .stat span {
-      display: block;
-      color: var(--muted);
-      margin-top: 8px;
-      font-size: 13px;
-    }
-
-    .progress-wrap {
-      background: rgba(255,255,255,.08);
-      border: 1px solid var(--line);
-      height: 18px;
-      border-radius: 999px;
-      overflow: hidden;
-      margin-bottom: 14px;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--owned), var(--accent));
-      transition: width .25s ease;
-    }
-
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .pill {
-      display: inline-flex;
-      gap: 7px;
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 10px;
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; background: rgba(255,255,255,.22); }
-    .dot.owned { background: var(--owned); }
-    .dot.duplicate { background: var(--dup); }
-
-    .data-card {
-      margin: 14px 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .data-card h2 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .data-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    .data-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .filters {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin: 14px 0;
-    }
-
-    .filter-card h2 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-
-    .filter-card select {
-      width: 100%;
-      min-height: 44px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.09);
-      color: var(--text);
-      padding: 10px 12px;
-      font: inherit;
-      outline: none;
-    }
-
-    .filter-card select option { color: #101827; }
-
-    .filter-result {
-      margin-top: 12px;
-      min-height: 72px;
-      padding: 12px;
-      border-radius: 16px;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .filter-summary {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-
-    .card-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .mini-card {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      min-width: 48px;
-      padding: 7px 9px;
-      border-radius: 11px;
-      font-size: 13px;
-      font-weight: 900;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.08);
-      color: var(--text);
-    }
-
-    .mini-card.duplicate {
-      background: rgba(255,209,102,.22);
-      border-color: rgba(255,209,102,.55);
-    }
-
-    .tabs {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 4px 0 12px;
-      scrollbar-width: thin;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      background: linear-gradient(180deg, rgba(7,17,31,.98), rgba(7,17,31,.76));
-      backdrop-filter: blur(10px);
-    }
-
-    .tab-btn, .action-btn, .card-btn {
-      border: 0;
-      cursor: pointer;
-      color: var(--text);
-      font-family: inherit;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .tab-btn {
-      flex: 0 0 auto;
-      min-width: 48px;
-      min-height: 44px;
-      border-radius: 14px;
-      padding: 10px 14px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid var(--line);
-      font-weight: 800;
-    }
-
-    .tab-btn.active {
-      background: linear-gradient(135deg, var(--accent), #6c5ce7);
-      color: #fff;
-      border-color: rgba(255,255,255,.25);
-    }
-
-    .actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 2px 0 14px;
-    }
-
-    .action-btn {
-      min-height: 42px;
-      border-radius: 14px;
-      padding: 10px 12px;
-      background: rgba(53,194,255,.13);
-      border: 1px solid rgba(53,194,255,.24);
-      font-weight: 700;
-    }
-
-    .action-btn.danger {
-      background: rgba(255,107,107,.13);
-      border-color: rgba(255,107,107,.28);
-    }
-
-    .action-btn.safe {
-      background: rgba(32,201,151,.13);
-      border-color: rgba(32,201,151,.28);
-    }
-
-    .group-title {
-      margin: 8px 0 14px;
-      font-size: 24px;
-    }
-
-    .countries {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .country h3 {
-      margin: 0 0 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      font-size: 18px;
-    }
-
-    .country h3 small {
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 12px;
-      white-space: nowrap;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-    }
-
-    .card-btn {
-      min-height: 46px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid var(--line);
-      font-weight: 900;
-      color: var(--muted);
-      transition: transform .12s ease, background .12s ease, color .12s ease;
-    }
-
-    .card-btn:active { transform: scale(.96); }
-
-    .card-btn.owned {
-      background: rgba(32,201,151,.24);
-      border-color: rgba(32,201,151,.55);
-      color: #eafff8;
-    }
-
-    .card-btn.duplicate {
-      background: rgba(255,209,102,.24);
-      border-color: rgba(255,209,102,.65);
-      color: #fff7dd;
-    }
-
-    .note {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 760px) {
-      header { padding-top: calc(18px + env(safe-area-inset-top)); }
-      main { padding: 10px; }
-      .panel { border-radius: 20px; padding: 12px; }
-      .stats, .filters { grid-template-columns: 1fr; }
-      .countries { grid-template-columns: 1fr; }
-      .cards-grid { grid-template-columns: repeat(4, 1fr); }
-      .card-btn { min-height: 52px; font-size: 15px; }
-      .action-btn { width: 100%; }
-      .data-actions { display: grid; grid-template-columns: 1fr; }
-    }
+    :root{--ui-scale:1;--bg:#07111f;--text:#f4f7fb;--muted:#9fb2ce;--line:rgba(255,255,255,.12);--accent:#35c2ff;--owned:#20c997;--dup:#ffd166;--danger:#ff6b6b;--shadow:0 18px 40px rgba(0,0,0,.28)}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#17365f 0%,var(--bg) 42%,#040914 100%);color:var(--text);min-height:100vh}header{padding:24px 16px 10px;text-align:center}h1{margin:0;font-size:clamp(28px,6vw,52px);line-height:1.05}.subtitle{margin:10px auto 0;color:var(--muted);max-width:760px;font-size:15px}main{width:min(1180px,100%);margin:0 auto;padding:14px}.panel{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:16px;backdrop-filter:blur(10px)}.sync-box{display:grid;gap:8px;margin-bottom:14px;color:var(--muted);font-size:13px}.sync-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}.badge{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--text);font-size:13px;font-weight:700}.badge.online{border-color:rgba(32,201,151,.6)}.badge.offline{border-color:rgba(255,107,107,.55)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}.stat,.card-box,.country,.tool-card{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:20px;padding:14px}.stat{min-height:92px}.stat strong{display:block;font-size:clamp(25px,5vw,40px);line-height:1}.stat span{display:block;color:var(--muted);margin-top:8px;font-size:13px}.progress-wrap{background:rgba(255,255,255,.08);border:1px solid var(--line);height:18px;border-radius:999px;overflow:hidden;margin-bottom:14px}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--owned),var(--accent));transition:width .25s ease}.legend,.actions,.tool-actions,.card-list{display:flex;flex-wrap:wrap;gap:8px}.legend{margin-bottom:14px}.pill{display:inline-flex;gap:7px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 10px;background:rgba(255,255,255,.05);color:var(--muted);font-size:13px}.dot{width:11px;height:11px;border-radius:50%;display:inline-block;background:rgba(255,255,255,.22)}.dot.owned{background:var(--owned)}.dot.duplicate{background:var(--dup)}.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.tool-card{display:grid;gap:10px}.tool-card h2,.card-box h2{margin:0;font-size:18px}.tool-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}.size-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.size-line strong{min-width:52px;text-align:center}.filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.card-box select{width:100%;min-height:44px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.09);color:var(--text);padding:10px 12px;font:inherit;outline:none}.card-box select option{color:#101827}.filter-result{margin-top:12px;min-height:72px;padding:12px;border-radius:16px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08)}.filter-summary{color:var(--muted);font-size:13px;margin-bottom:8px}.mini-card{display:inline-flex;align-items:center;justify-content:center;min-height:34px;min-width:48px;padding:7px 9px;border-radius:11px;font-size:13px;font-weight:800;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--text)}.mini-card.duplicate{background:rgba(255,209,102,.22);border-color:rgba(255,209,102,.55)}.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:thin;position:sticky;top:0;z-index:5;background:linear-gradient(180deg,rgba(7,17,31,.98),rgba(7,17,31,.76));backdrop-filter:blur(10px)}button{cursor:pointer;color:var(--text);font-family:inherit;-webkit-tap-highlight-color:transparent}.tab-btn,.action-btn{border:0}.tab-btn{flex:0 0 auto;min-width:48px;min-height:44px;border-radius:14px;padding:10px 14px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-weight:800}.tab-btn.active{background:linear-gradient(135deg,var(--accent),#6c5ce7);color:#fff;border-color:rgba(255,255,255,.25)}.actions{margin:2px 0 14px}.action-btn{min-height:42px;border-radius:14px;padding:10px 12px;background:rgba(53,194,255,.13);border:1px solid rgba(53,194,255,.24);font-weight:700}.action-btn.danger{background:rgba(255,107,107,.13);border-color:rgba(255,107,107,.28)}.action-btn.safe{background:rgba(32,201,151,.13);border-color:rgba(32,201,151,.28)}.group-title{margin:8px 0 14px;font-size:24px}.countries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.country h3{margin:0 0 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:18px}.country h3 small{color:var(--muted);font-weight:600;font-size:12px;white-space:nowrap}.cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(8px * var(--ui-scale))}body.compact .cards-grid{grid-template-columns:repeat(5,1fr)}body.ultra .cards-grid{grid-template-columns:repeat(6,1fr)}.card-btn{border:1px solid var(--line);min-height:calc(82px * var(--ui-scale));border-radius:14px;background:rgba(255,255,255,.08);font-weight:800;color:var(--muted);display:grid;gap:calc(4px * var(--ui-scale));align-content:start;text-align:left;padding:calc(9px * var(--ui-scale));transition:transform .12s ease,background .12s ease,color .12s ease}.card-btn:active{transform:scale(.97)}.card-btn.owned{background:rgba(32,201,151,.22);border-color:rgba(32,201,151,.55);color:#eafff8}.card-btn.duplicate{background:rgba(255,209,102,.23);border-color:rgba(255,209,102,.65);color:#fff7dd}.sticker-number{font-size:calc(12px * var(--ui-scale));font-weight:900;color:#fff}.sticker-name{font-size:calc(11px * var(--ui-scale));line-height:1.15;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.sticker-status{font-size:calc(10px * var(--ui-scale));color:var(--muted)}.card-btn.owned .sticker-status,.card-btn.duplicate .sticker-status{color:rgba(255,255,255,.82)}.note{margin-top:14px;color:var(--muted);font-size:13px;line-height:1.55}.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:40;display:flex;align-items:center;justify-content:center;padding:16px}.modal[hidden]{display:none}.modal-box{width:min(520px,100%);border:1px solid var(--line);background:#0b182a;border-radius:22px;padding:16px;box-shadow:var(--shadow)}.modal-box h2{margin:0 0 8px}.modal-detail{color:var(--muted);font-size:14px;line-height:1.45;margin:0 0 12px}.modal-actions{display:grid;gap:8px}.modal-actions button{text-align:center}.muted{color:var(--muted)}@media(max-width:760px){header{padding-top:calc(18px + env(safe-area-inset-top))}main{padding:10px}.panel{border-radius:20px;padding:12px}.stats,.filters,.tools{grid-template-columns:1fr}.countries{grid-template-columns:1fr}.cards-grid{grid-template-columns:repeat(2,1fr)}body.compact .cards-grid{grid-template-columns:repeat(3,1fr)}body.ultra .cards-grid{grid-template-columns:repeat(4,1fr)}.action-btn{width:100%}.tool-actions{display:grid;grid-template-columns:1fr}.card-btn{min-height:calc(86px * var(--ui-scale))}}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Álbum FIFA 2026</h1>
-    <p class="subtitle">Controla tus cartas: faltantes, cartas que tienes y repetidas. Funciona en iPhone, Mac y computador.</p>
-  </header>
-
-  <main>
-    <section class="panel">
-      <div class="sync-box">
-        <div class="sync-row">
-          <span id="syncStatus" class="badge offline">Sincronización online desactivada</span>
-          <span id="lastUpdateText">Guardado local en este navegador</span>
-        </div>
-        <div>1 clic: tengo · 2 clics: repetida · 3 clics: faltante nuevamente</div>
-      </div>
-
-      <section class="stats">
-        <div class="stat"><strong id="progressText">0%</strong><span>Progreso</span></div>
-        <div class="stat"><strong id="ownedText">0</strong><span>Cartas que tengo</span></div>
-        <div class="stat"><strong id="missingText">0</strong><span>Cartas faltantes</span></div>
-        <div class="stat"><strong id="duplicateText">0</strong><span>Cartas repetidas</span></div>
-      </section>
-
-      <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
-
-      <div class="legend">
-        <span class="pill"><span class="dot"></span>Faltante</span>
-        <span class="pill"><span class="dot owned"></span>Tengo</span>
-        <span class="pill"><span class="dot duplicate"></span>Repetida</span>
-      </div>
-
-      <section class="data-card">
-        <h2>Respaldo de data</h2>
-        <p>Exporta tu progreso para guardarlo o llevarlo a otro dispositivo. Al importar, la data del archivo reemplaza la data actual de este navegador.</p>
-        <div class="data-actions">
-          <button class="action-btn safe" onclick="exportData()">Exportar data</button>
-          <button class="action-btn" onclick="openImportData()">Importar data</button>
-          <input id="dataImportInput" type="file" accept="application/json,.json" hidden onchange="importDataFromFile(event)" />
-        </div>
-      </section>
-
-      <section class="filters">
-        <article class="filter-card">
-          <h2>Cartas faltantes por país</h2>
-          <select id="missingCountry" onchange="renderFilters()"></select>
-          <div class="filter-result" id="missingResult"></div>
-        </article>
-
-        <article class="filter-card">
-          <h2>Cartas repetidas por país</h2>
-          <select id="duplicateCountry" onchange="renderFilters()"></select>
-          <div class="filter-result" id="duplicateResult"></div>
-        </article>
-      </section>
-
-      <nav class="tabs" id="tabs"></nav>
-
-      <section class="actions">
-        <button class="action-btn" onclick="markVisibleAsOwned()">Marcar pestaña visible como tengo</button>
-        <button class="action-btn" onclick="clearVisibleTab()">Limpiar pestaña visible</button>
-        <button class="action-btn danger" onclick="resetAlbum()">Reiniciar todo el álbum</button>
-      </section>
-
-      <section id="content"></section>
-
-      <p class="note">
-        Para que otras personas vean tus cambios en vivo, debes activar Firebase Firestore en este archivo. GitHub Pages publica la página, pero Firebase guarda el progreso compartido.
-      </p>
+  <header><h1>Álbum FIFA 2026</h1><p class="subtitle">Controla tus láminas: faltantes, encontradas, repetidas e intercambio. Compatible con iPhone, Mac y computador.</p></header>
+  <main><section class="panel">
+    <div class="sync-box"><div class="sync-row"><span id="syncStatus" class="badge offline">Sincronización online desactivada</span><span id="lastUpdateText">Guardado local en este navegador</span></div><div>Toca una lámina para abrir sus acciones. Ningún cambio se aplica sin confirmación.</div></div>
+    <section class="stats"><div class="stat"><strong id="progressText">0%</strong><span>Progreso</span></div><div class="stat"><strong id="ownedText">0</strong><span>Cartas que tengo</span></div><div class="stat"><strong id="missingText">0</strong><span>Cartas faltantes</span></div><div class="stat"><strong id="duplicateText">0</strong><span>Cantidad repetida</span></div></section>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="legend"><span class="pill"><span class="dot"></span>Faltante</span><span class="pill"><span class="dot owned"></span>Encontrada</span><span class="pill"><span class="dot duplicate"></span>Repetida</span></div>
+    <section class="tools">
+      <article class="tool-card"><h2>Respaldo de data</h2><p>Exporta tu progreso para guardarlo o llevarlo a otro dispositivo. Al importar, reemplaza la data actual del navegador.</p><div class="tool-actions"><button class="action-btn safe" onclick="exportData()">Exportar data</button><button class="action-btn" onclick="openImportData()">Importar data</button><input id="dataImportInput" type="file" accept="application/json,.json" hidden onchange="importDataFromFile(event)" /></div></article>
+      <article class="tool-card"><h2>Data oficial de láminas</h2><p>Importa el TXT oficial para ver nombre, país, código y número. También intenta cargar automáticamente un archivo <strong>album-data.txt</strong> si existe en el repositorio.</p><div class="tool-actions"><button class="action-btn safe" onclick="openOfficialDataImport()">Importar listado oficial TXT</button><input id="officialDataInput" type="file" accept="text/plain,.txt" hidden onchange="importOfficialDataFromFile(event)" /></div><span id="officialDataStatus" class="muted">Sin listado oficial cargado.</span></article>
+      <article class="tool-card"><h2>Tamaño de vista</h2><p>Agranda o reduce la interfaz. En iPhone, el modo pequeño muestra más láminas por pantalla.</p><div class="size-line"><button class="action-btn" onclick="changeUiScale(-0.1)">−</button><strong id="uiScaleText">100%</strong><button class="action-btn" onclick="changeUiScale(0.1)">+</button><button class="action-btn" onclick="resetUiScale()">100%</button></div></article>
     </section>
-  </main>
-
+    <section class="filters"><article class="card-box"><h2>Cartas faltantes por país/sección</h2><select id="missingCountry" onchange="renderFilters()"></select><div class="filter-result" id="missingResult"></div></article><article class="card-box"><h2>Cartas repetidas por país/sección</h2><select id="duplicateCountry" onchange="renderFilters()"></select><div class="filter-result" id="duplicateResult"></div></article></section>
+    <nav class="tabs" id="tabs"></nav>
+    <section class="actions"><button class="action-btn" onclick="markVisibleAsOwned()">Marcar pestaña visible como encontrada</button><button class="action-btn" onclick="clearVisibleTab()">Limpiar pestaña visible</button><button class="action-btn danger" onclick="resetAlbum()">Reiniciar todo el álbum</button></section>
+    <section id="content"></section>
+    <p class="note">Tu progreso local sigue usando la misma clave de guardado: <strong>album-fifa-2026-progreso</strong>. Las repetidas antiguas se interpretan como 1 repetida.</p>
+  </section></main>
+  <div class="modal" id="cardModal" hidden><div class="modal-box"><h2 id="modalTitle">Lámina</h2><p class="modal-detail" id="modalDetail"></p><div class="modal-actions" id="modalActions"></div><button class="action-btn" style="width:100%;margin-top:10px" onclick="closeCardModal()">Cancelar</button></div></div>
   <script type="module">
-    const FIREBASE_ACTIVO = false;
-
-    const firebaseConfig = {
-      apiKey: "PEGA_AQUI_TU_API_KEY",
-      authDomain: "PEGA_AQUI.firebaseapp.com",
-      projectId: "PEGA_AQUI_TU_PROJECT_ID",
-      storageBucket: "PEGA_AQUI.appspot.com",
-      messagingSenderId: "PEGA_AQUI",
-      appId: "PEGA_AQUI"
-    };
-
-    const ALBUM_ID = "album-fifa-2026-javier";
-    const STORAGE_KEY = "album-fifa-2026-progreso";
-
-    const album = [
-      { id: "A", title: "División A", countries: ["México", "Sudáfrica", "Corea del Sur", "Chequia"] },
-      { id: "B", title: "División B", countries: ["Canadá", "Bosnia y Herzegovina", "Qatar", "Suiza"] },
-      { id: "C", title: "División C", countries: ["Brasil", "Marruecos", "Haití", "Escocia"] },
-      { id: "D", title: "División D", countries: ["Estados Unidos", "Paraguay", "Australia", "Turquía"] },
-      { id: "E", title: "División E", countries: ["Alemania", "Curazao", "Costa de Marfil", "Ecuador"] },
-      { id: "F", title: "División F", countries: ["Países Bajos", "Japón", "Suecia", "Túnez"] },
-      { id: "G", title: "División G", countries: ["Bélgica", "Egipto", "Irán", "Nueva Zelanda"] },
-      { id: "H", title: "División H", countries: ["España", "Cabo Verde", "Arabia Saudita", "Uruguay"] },
-      { id: "I", title: "División I", countries: ["Francia", "Senegal", "Irak", "Noruega"] },
-      { id: "J", title: "División J", countries: ["Argentina", "Argelia", "Austria", "Jordania"] },
-      { id: "K", title: "División K", countries: ["Portugal", "RD Congo", "Uzbekistán", "Colombia"] },
-      { id: "L", title: "División L", countries: ["Inglaterra", "Croacia", "Ghana", "Panamá"] },
-      { id: "FWC", title: "FWC", countries: ["FWC"] }
+    const FIREBASE_ACTIVO=false;
+    const firebaseConfig={apiKey:"PEGA_AQUI_TU_API_KEY",authDomain:"PEGA_AQUI.firebaseapp.com",projectId:"PEGA_AQUI_TU_PROJECT_ID",storageBucket:"PEGA_AQUI.appspot.com",messagingSenderId:"PEGA_AQUI",appId:"PEGA_AQUI"};
+    const ALBUM_ID="album-fifa-2026-javier";
+    const STORAGE_KEY="album-fifa-2026-progreso";
+    const UI_SCALE_KEY="album-fifa-2026-ui-scale";
+    const STICKER_DATA_KEY="album-fifa-2026-sticker-data";
+    const album=[
+      {id:"A",title:"División A",type:"team",countries:[{key:"México",display:"México",code:"MEX"},{key:"Sudáfrica",display:"Sudáfrica",code:"RSA"},{key:"Corea del Sur",display:"Corea del Sur",code:"KOR"},{key:"Chequia",display:"República Checa",code:"CZE"}]},
+      {id:"B",title:"División B",type:"team",countries:[{key:"Canadá",display:"Canadá",code:"CAN"},{key:"Bosnia y Herzegovina",display:"Bosnia y Herzegovina",code:"BIH"},{key:"Qatar",display:"Catar",code:"QAT"},{key:"Suiza",display:"Suiza",code:"SUI"}]},
+      {id:"C",title:"División C",type:"team",countries:[{key:"Brasil",display:"Brasil",code:"BRA"},{key:"Marruecos",display:"Marruecos",code:"MAR"},{key:"Haití",display:"Haití",code:"HAI"},{key:"Escocia",display:"Escocia",code:"SCO"}]},
+      {id:"D",title:"División D",type:"team",countries:[{key:"Estados Unidos",display:"Estados Unidos",code:"USA"},{key:"Paraguay",display:"Paraguay",code:"PAR"},{key:"Australia",display:"Australia",code:"AUS"},{key:"Turquía",display:"Turquía",code:"TUR"}]},
+      {id:"E",title:"División E",type:"team",countries:[{key:"Alemania",display:"Alemania",code:"GER"},{key:"Curazao",display:"Curazao",code:"CUW"},{key:"Costa de Marfil",display:"Costa de Marfil",code:"CIV"},{key:"Ecuador",display:"Ecuador",code:"ECU"}]},
+      {id:"F",title:"División F",type:"team",countries:[{key:"Países Bajos",display:"Países Bajos",code:"NED"},{key:"Japón",display:"Japón",code:"JPN"},{key:"Suecia",display:"Suecia",code:"SWE"},{key:"Túnez",display:"Túnez",code:"TUN"}]},
+      {id:"G",title:"División G",type:"team",countries:[{key:"Bélgica",display:"Bélgica",code:"BEL"},{key:"Egipto",display:"Egipto",code:"EGY"},{key:"Irán",display:"Irán",code:"IRN"},{key:"Nueva Zelanda",display:"Nueva Zelanda",code:"NZL"}]},
+      {id:"H",title:"División H",type:"team",countries:[{key:"España",display:"España",code:"ESP"},{key:"Cabo Verde",display:"Cabo Verde",code:"CPV"},{key:"Arabia Saudita",display:"Arabia Saudita",code:"KSA"},{key:"Uruguay",display:"Uruguay",code:"URU"}]},
+      {id:"I",title:"División I",type:"team",countries:[{key:"Francia",display:"Francia",code:"FRA"},{key:"Senegal",display:"Senegal",code:"SEN"},{key:"Irak",display:"Irak",code:"IRQ"},{key:"Noruega",display:"Noruega",code:"NOR"}]},
+      {id:"J",title:"División J",type:"team",countries:[{key:"Argentina",display:"Argentina",code:"ARG"},{key:"Argelia",display:"Argelia",code:"ALG"},{key:"Austria",display:"Austria",code:"AUT"},{key:"Jordania",display:"Jordania",code:"JOR"}]},
+      {id:"K",title:"División K",type:"team",countries:[{key:"Portugal",display:"Portugal",code:"POR"},{key:"RD Congo",display:"Congo RD",code:"COD"},{key:"Uzbekistán",display:"Uzbekistán",code:"UZB"},{key:"Colombia",display:"Colombia",code:"COL"}]},
+      {id:"L",title:"División L",type:"team",countries:[{key:"Inglaterra",display:"Inglaterra",code:"ENG"},{key:"Croacia",display:"Croacia",code:"CRO"},{key:"Ghana",display:"Ghana",code:"GHA"},{key:"Panamá",display:"Panamá",code:"PAN"}]},
+      {id:"FWC",title:"FWC",type:"fwc",countries:[{key:"FWC",display:"FWC",code:"FWC"}]},
+      {id:"CC",title:"Coca-Cola",type:"cc",countries:[{key:"Coca-Cola",display:"Coca-Cola Latinoamérica / Chile",code:"CC"}]}
     ];
-
-    const totalCards = 12 * 4 * 20 + 20;
-    let activeTab = "A";
-    let state = loadLocalState();
-    let docRef = null;
-    let firebaseReady = false;
-    let saving = false;
-
-    window.changeTab = changeTab;
-    window.cycleCard = cycleCard;
-    window.markVisibleAsOwned = markVisibleAsOwned;
-    window.clearVisibleTab = clearVisibleTab;
-    window.resetAlbum = resetAlbum;
-    window.renderFilters = renderFilters;
-    window.exportData = exportData;
-    window.openImportData = openImportData;
-    window.importDataFromFile = importDataFromFile;
-
-    function loadLocalState() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
-      catch { return {}; }
-    }
-
-    function saveLocalState() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      document.getElementById("lastUpdateText").textContent = "Último guardado local: " + new Date().toLocaleString("es-CL");
-    }
-
-    function setSyncStatus(text, mode = "") {
-      const element = document.getElementById("syncStatus");
-      element.textContent = text;
-      element.className = `badge ${mode}`.trim();
-    }
-
-    async function initFirebase() {
-      if (!FIREBASE_ACTIVO) {
-        setSyncStatus("Sincronización online desactivada", "offline");
-        return;
-      }
-
-      try {
-        const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js");
-        const { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        docRef = doc(db, "albums", ALBUM_ID);
-        firebaseReady = true;
-        window.firebaseSetDoc = setDoc;
-        window.firebaseServerTimestamp = serverTimestamp;
-        setSyncStatus("Sincronización online activa", "online");
-
-        onSnapshot(docRef, snapshot => {
-          if (!snapshot.exists()) return;
-          const data = snapshot.data();
-          if (data && data.cards) {
-            state = data.cards;
-            saveLocalState();
-            render();
-          }
-          if (data && data.updatedAt && data.updatedAt.toDate) {
-            document.getElementById("lastUpdateText").textContent = "Última actualización online: " + data.updatedAt.toDate().toLocaleString("es-CL");
-          }
-        });
-      } catch (error) {
-        console.error(error);
-        setSyncStatus("Error al conectar Firebase", "offline");
-      }
-    }
-
-    async function saveCloudState() {
-      saveLocalState();
-      if (!firebaseReady || !docRef || saving) return;
-      saving = true;
-      try {
-        await window.firebaseSetDoc(docRef, {
-          cards: state,
-          updatedAt: window.firebaseServerTimestamp()
-        }, { merge: true });
-      } catch (error) {
-        console.error(error);
-        setSyncStatus("Error al guardar online", "offline");
-      } finally {
-        saving = false;
-      }
-    }
-
-    function exportData() {
-      const data = {
-        app: "album-fifa-2026",
-        version: 1,
-        exportedAt: new Date().toISOString(),
-        storageKey: STORAGE_KEY,
-        albumId: ALBUM_ID,
-        cards: state
-      };
-
-      const json = JSON.stringify(data, null, 2);
-      const blob = new Blob([json], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const date = new Date().toISOString().slice(0, 10);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `album-fifa-2026-data-${date}.json`;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      URL.revokeObjectURL(url);
-      alert("Data exportada. Guarda el archivo JSON como respaldo.");
-    }
-
-    function openImportData() {
-      document.getElementById("dataImportInput").value = "";
-      document.getElementById("dataImportInput").click();
-    }
-
-    function isValidImportedState(cards) {
-      if (!cards || typeof cards !== "object" || Array.isArray(cards)) return false;
-      return Object.entries(cards).every(([key, value]) => {
-        return typeof key === "string" && ["owned", "duplicate"].includes(value);
-      });
-    }
-
-    function importDataFromFile(event) {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const data = JSON.parse(reader.result);
-          const importedCards = data.cards || data;
-
-          if (!isValidImportedState(importedCards)) {
-            alert("El archivo no parece ser una data válida del álbum.");
-            return;
-          }
-
-          const totalImported = Object.keys(importedCards).length;
-          const confirmMessage = `Se importarán ${totalImported} cartas marcadas. Esto reemplazará la data actual de este navegador. ¿Quieres continuar?`;
-          if (!confirm(confirmMessage)) return;
-
-          state = importedCards;
-          saveCloudState();
-          render();
-          alert("Data importada correctamente.");
-        } catch (error) {
-          console.error(error);
-          alert("No se pudo leer el archivo. Verifica que sea un JSON exportado desde esta página.");
-        }
-      };
-      reader.readAsText(file);
-    }
-
-    function getCardNumbers(sectionId) {
-      if (sectionId === "FWC") return ["FWC 00", ...Array.from({ length: 19 }, (_, i) => `FWC ${i + 1}`)];
-      return Array.from({ length: 20 }, (_, i) => String(i + 1).padStart(2, "0"));
-    }
-
-    function cardKey(sectionId, country, cardNumber) {
-      return `${sectionId}|${country}|${cardNumber}`;
-    }
-
-    function getStatus(key) {
-      return state[key] || "missing";
-    }
-
-    function nextStatus(current) {
-      if (current === "missing") return "owned";
-      if (current === "owned") return "duplicate";
-      return "missing";
-    }
-
-    function setCardStatus(key, status) {
-      if (status === "missing") delete state[key];
-      else state[key] = status;
-      saveCloudState();
-      render();
-    }
-
-    function cycleCard(key) {
-      setCardStatus(key, nextStatus(getStatus(key)));
-    }
-
-    function getAllCollections() {
-      const list = [];
-      album.forEach(section => {
-        section.countries.forEach(country => {
-          list.push({ sectionId: section.id, sectionTitle: section.title, country });
-        });
-      });
-      return list;
-    }
-
-    function getCardsByCountry(country, wantedStatus) {
-      const collection = getAllCollections().find(item => item.country === country);
-      if (!collection) return [];
-      return getCardNumbers(collection.sectionId).filter(card => {
-        const key = cardKey(collection.sectionId, collection.country, card);
-        const status = getStatus(key);
-        if (wantedStatus === "missing") return status === "missing";
-        return status === wantedStatus;
-      });
-    }
-
-    function renderCountrySelects() {
-      const options = getAllCollections().map(item => `<option value="${item.country}">${item.country} · ${item.sectionTitle}</option>`).join("");
-      const missingSelect = document.getElementById("missingCountry");
-      const duplicateSelect = document.getElementById("duplicateCountry");
-
-      if (!missingSelect.innerHTML) missingSelect.innerHTML = options;
-      if (!duplicateSelect.innerHTML) duplicateSelect.innerHTML = options;
-    }
-
-    function renderFilterBox(resultId, country, type) {
-      const result = document.getElementById(resultId);
-      const cards = getCardsByCountry(country, type);
-      const label = type === "missing" ? "faltantes" : "repetidas";
-      const emptyText = type === "missing" ? "No tienes cartas faltantes en esta sección." : "No tienes cartas repetidas en esta sección.";
-      const className = type === "duplicate" ? "mini-card duplicate" : "mini-card";
-
-      result.innerHTML = `
-        <div class="filter-summary"><strong>${country}</strong>: ${cards.length} carta(s) ${label}</div>
-        ${cards.length ? `<div class="card-list">${cards.map(card => `<span class="${className}">${card}</span>`).join("")}</div>` : `<div class="filter-summary">${emptyText}</div>`}
-      `;
-    }
-
-    function renderFilters() {
-      renderCountrySelects();
-      const missingCountry = document.getElementById("missingCountry").value || getAllCollections()[0].country;
-      const duplicateCountry = document.getElementById("duplicateCountry").value || getAllCollections()[0].country;
-      renderFilterBox("missingResult", missingCountry, "missing");
-      renderFilterBox("duplicateResult", duplicateCountry, "duplicate");
-    }
-
-    function renderTabs() {
-      document.getElementById("tabs").innerHTML = album.map(section => `
-        <button class="tab-btn ${section.id === activeTab ? "active" : ""}" onclick="changeTab('${section.id}')">${section.id}</button>
-      `).join("");
-    }
-
-    function changeTab(tabId) {
-      activeTab = tabId;
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function renderContent() {
-      const section = album.find(item => item.id === activeTab);
-      const cards = getCardNumbers(section.id);
-
-      document.getElementById("content").innerHTML = `
-        <h2 class="group-title">${section.title}</h2>
-        <div class="countries">
-          ${section.countries.map(country => `
-            <article class="country">
-              <h3>${country}<small>${cards.length} cartas</small></h3>
-              <div class="cards-grid">
-                ${cards.map(card => {
-                  const key = cardKey(section.id, country, card);
-                  const status = getStatus(key);
-                  return `<button class="card-btn ${status !== "missing" ? status : ""}" onclick="cycleCard('${key}')">${card}</button>`;
-                }).join("")}
-              </div>
-            </article>
-          `).join("")}
-        </div>
-      `;
-    }
-
-    function updateStats() {
-      let owned = 0;
-      let duplicate = 0;
-
-      Object.values(state).forEach(status => {
-        if (status === "owned" || status === "duplicate") owned++;
-        if (status === "duplicate") duplicate++;
-      });
-
-      const missing = totalCards - owned;
-      const progress = totalCards === 0 ? 0 : Math.round((owned / totalCards) * 100);
-
-      document.getElementById("ownedText").textContent = owned;
-      document.getElementById("missingText").textContent = missing;
-      document.getElementById("duplicateText").textContent = duplicate;
-      document.getElementById("progressText").textContent = `${progress}%`;
-      document.getElementById("progressBar").style.width = `${progress}%`;
-    }
-
-    function visibleKeys() {
-      const section = album.find(item => item.id === activeTab);
-      const cards = getCardNumbers(section.id);
-      const keys = [];
-      section.countries.forEach(country => {
-        cards.forEach(card => keys.push(cardKey(section.id, country, card)));
-      });
-      return keys;
-    }
-
-    function markVisibleAsOwned() {
-      visibleKeys().forEach(key => state[key] = "owned");
-      saveCloudState();
-      render();
-    }
-
-    function clearVisibleTab() {
-      if (!confirm("¿Limpiar solo la pestaña visible?")) return;
-      visibleKeys().forEach(key => delete state[key]);
-      saveCloudState();
-      render();
-    }
-
-    function resetAlbum() {
-      if (!confirm("¿Reiniciar todo el álbum?")) return;
-      state = {};
-      saveCloudState();
-      render();
-    }
-
-    function render() {
-      renderTabs();
-      renderContent();
-      updateStats();
-      renderFilters();
-    }
-
-    render();
-    initFirebase();
+    let state=loadLocalState(),stickerData=loadLocalStickerData(),activeTab="A",docRef=null,firebaseReady=false,saving=false,activeActionKey=null,uiScale=loadUiScale();
+    Object.assign(window,{changeTab,openCardActions,applyCardAction,closeCardModal,markVisibleAsOwned,clearVisibleTab,resetAlbum,renderFilters,exportData,openImportData,importDataFromFile,openOfficialDataImport,importOfficialDataFromFile,changeUiScale,resetUiScale});
+    function esc(s){return String(s??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]))}
+    function normalizeEntry(v){if(v==="owned")return{owned:true,duplicates:0};if(v==="duplicate")return{owned:true,duplicates:1};if(v&&typeof v==="object"){const owned=v.owned===true||v.status==="owned"||v.status==="duplicate";const d=Math.max(0,Math.floor(Number(v.duplicates??v.duplicateCount??(v.status==="duplicate"?1:0))||0));if(owned)return{owned:true,duplicates:d}}return null}
+    function migrateState(raw){const out={};if(!raw||typeof raw!=="object"||Array.isArray(raw))return out;for(const[k,v]of Object.entries(raw)){const n=normalizeEntry(v);if(n)out[k]=n}return out}
+    function loadLocalState(){try{return migrateState(JSON.parse(localStorage.getItem(STORAGE_KEY))||{})}catch{return{}}}
+    function getEntry(key){return state[key]||{owned:false,duplicates:0}}
+    function saveLocalState(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state));document.getElementById("lastUpdateText").textContent="Último guardado local: "+new Date().toLocaleString("es-CL")}
+    function setSyncStatus(text,mode=""){const e=document.getElementById("syncStatus");e.textContent=text;e.className=`badge ${mode}`.trim()}
+    async function initFirebase(){if(!FIREBASE_ACTIVO){setSyncStatus("Sincronización online desactivada","offline");return}try{const{initializeApp}=await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js");const{getFirestore,doc,onSnapshot,setDoc,serverTimestamp}=await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");const app=initializeApp(firebaseConfig);const db=getFirestore(app);docRef=doc(db,"albums",ALBUM_ID);firebaseReady=true;window.firebaseSetDoc=setDoc;window.firebaseServerTimestamp=serverTimestamp;setSyncStatus("Sincronización online activa","online");onSnapshot(docRef,s=>{if(!s.exists())return;const d=s.data();if(d&&d.cards){state=migrateState(d.cards);saveLocalState();render()}if(d&&d.updatedAt&&d.updatedAt.toDate)document.getElementById("lastUpdateText").textContent="Última actualización online: "+d.updatedAt.toDate().toLocaleString("es-CL")})}catch(e){console.error(e);setSyncStatus("Error al conectar Firebase","offline")}}
+    async function saveCloudState(){saveLocalState();if(!firebaseReady||!docRef||saving)return;saving=true;try{await window.firebaseSetDoc(docRef,{cards:state,updatedAt:window.firebaseServerTimestamp()},{merge:true})}catch(e){console.error(e);setSyncStatus("Error al guardar online","offline")}finally{saving=false}}
+    function getCardDefs(section){if(section.type==="team")return Array.from({length:20},(_,i)=>({stateNumber:String(i+1).padStart(2,"0"),displayNumber:String(i+1).padStart(2,"0"),dataNumber:String(i+1)}));if(section.type==="fwc")return[{stateNumber:"FWC 00",displayNumber:"00",dataNumber:"00"},...Array.from({length:19},(_,i)=>({stateNumber:`FWC ${i+1}`,displayNumber:`FWC-${i+1}`,dataNumber:`FWC-${i+1}`}))];return Array.from({length:14},(_,i)=>({stateNumber:`CC-${i+1}`,displayNumber:`CC-${i+1}`,dataNumber:`CC-${i+1}`}))}
+    function cardKey(sectionId,countryKey,stateNumber){return `${sectionId}|${countryKey}|${stateNumber}`}
+    function totalCards(){return album.reduce((sum,s)=>sum+s.countries.length*getCardDefs(s).length,0)}
+    function findSection(id){return album.find(s=>s.id===id)}
+    function findCardContext(key){const[sectionId,countryKey,stateNumber]=key.split("|");const section=findSection(sectionId);const country=section?.countries.find(c=>c.key===countryKey);const card=section?getCardDefs(section).find(c=>c.stateNumber===stateNumber):null;return{section,country,card}}
+    function getMeta(section,country,card){let meta=null;if(section?.type==="team")meta=stickerData.teams?.[country.code]?.[card.dataNumber];if(section?.type==="fwc")meta=stickerData.fwc?.[card.dataNumber];if(section?.type==="cc")meta=stickerData.cc?.[card.dataNumber];return{country:meta?.country||country?.display||"",code:meta?.code||country?.code||section?.id||"",number:meta?.number||card?.displayNumber||"",name:meta?.name||"Nombre no cargado"}}
+    function statusText(entry){if(!entry.owned)return"Faltante";if(entry.duplicates>0)return`Repetidas: ${entry.duplicates}`;return"Encontrada"}
+    function statusClass(entry){if(!entry.owned)return"";return entry.duplicates>0?"duplicate":"owned"}
+    function renderTabs(){document.getElementById("tabs").innerHTML=album.map(s=>`<button class="tab-btn ${s.id===activeTab?"active":""}" onclick="changeTab('${s.id}')">${s.id}</button>`).join("")}
+    function changeTab(tabId){activeTab=tabId;render()}
+    function renderContent(){const section=findSection(activeTab);const cards=getCardDefs(section);document.getElementById("content").innerHTML=`<h2 class="group-title">${esc(section.title)}</h2><div class="countries">${section.countries.map(country=>`<article class="country"><h3>${esc(country.display)} <small>${esc(country.code)} · ${cards.length} láminas</small></h3><div class="cards-grid">${cards.map(card=>{const key=cardKey(section.id,country.key,card.stateNumber);const entry=getEntry(key);const meta=getMeta(section,country,card);return`<button class="card-btn ${statusClass(entry)}" data-key="${esc(key)}"><span class="sticker-number">${esc(meta.code)} ${esc(meta.number)}</span><span class="sticker-name">${esc(meta.name)}</span><span class="sticker-status">${esc(statusText(entry))}</span></button>`}).join("")}</div></article>`).join("")}</div>`;document.querySelectorAll(".card-btn[data-key]").forEach(btn=>btn.addEventListener("click",()=>openCardActions(btn.dataset.key)))}
+    function updateStats(){let owned=0,dups=0;Object.values(state).forEach(e=>{if(e.owned)owned++;dups+=Number(e.duplicates)||0});const missing=totalCards()-owned;const progress=totalCards()?Math.round(owned/totalCards()*100):0;document.getElementById("ownedText").textContent=owned;document.getElementById("missingText").textContent=missing;document.getElementById("duplicateText").textContent=dups;document.getElementById("progressText").textContent=`${progress}%`;document.getElementById("progressBar").style.width=`${progress}%`}
+    function getAllCollections(){const list=[];album.forEach(s=>s.countries.forEach(c=>list.push({id:`${s.id}|${c.key}`,section:s,country:c})));return list}
+    function renderCountrySelects(){const opts=getAllCollections().map(x=>`<option value="${esc(x.id)}">${esc(x.country.display)} · ${esc(x.section.title)}</option>`).join("");const a=document.getElementById("missingCountry"),b=document.getElementById("duplicateCountry");if(!a.innerHTML)a.innerHTML=opts;if(!b.innerHTML)b.innerHTML=opts}
+    function getCardsByCollection(collectionId,type){const item=getAllCollections().find(x=>x.id===collectionId);if(!item)return[];return getCardDefs(item.section).filter(card=>{const entry=getEntry(cardKey(item.section.id,item.country.key,card.stateNumber));return type==="missing"?!entry.owned:entry.duplicates>0}).map(card=>{const key=cardKey(item.section.id,item.country.key,card.stateNumber);return{card,entry:getEntry(key),meta:getMeta(item.section,item.country,card)}})}
+    function renderFilterBox(resultId,collectionId,type){const item=getAllCollections().find(x=>x.id===collectionId)||getAllCollections()[0];const rows=getCardsByCollection(item.id,type);const label=type==="missing"?"faltantes":"repetidas";const result=document.getElementById(resultId);result.innerHTML=`<div class="filter-summary"><strong>${esc(item.country.display)}</strong>: ${rows.length} carta(s) ${label}</div>${rows.length?`<div class="card-list">${rows.map(r=>`<span class="mini-card ${type==="duplicate"?"duplicate":""}">${esc(r.meta.code)} ${esc(r.meta.number)} · ${esc(r.meta.name)}${type==="duplicate"?` x${r.entry.duplicates}`:""}</span>`).join("")}</div>`:`<div class="filter-summary">Sin cartas ${label} en esta sección.</div>`}`}
+    function renderFilters(){renderCountrySelects();const a=document.getElementById("missingCountry").value||getAllCollections()[0].id;const b=document.getElementById("duplicateCountry").value||getAllCollections()[0].id;renderFilterBox("missingResult",a,"missing");renderFilterBox("duplicateResult",b,"duplicate")}
+    function openCardActions(key){activeActionKey=key;const{section,country,card}=findCardContext(key);const meta=getMeta(section,country,card);const entry=getEntry(key);document.getElementById("modalTitle").textContent=`${meta.code} ${meta.number}`;document.getElementById("modalDetail").innerHTML=`<strong>${esc(meta.name)}</strong><br>${esc(meta.country)} · Estado: <strong>${esc(statusText(entry))}</strong>`;let buttons=[];if(!entry.owned){buttons.push(["found","Marcar como encontrada","safe"])}else{if(entry.duplicates>0)buttons.push(["exchange","Intercambiar","safe"]);buttons.push(["addDuplicate","Agregar +1 repetida",""]);buttons.push(["missing","Marcar como faltante","danger"])}document.getElementById("modalActions").innerHTML=buttons.map(([a,t,c])=>`<button class="action-btn ${c}" onclick="applyCardAction('${a}')">${t}</button>`).join("");document.getElementById("cardModal").hidden=false}
+    function closeCardModal(){activeActionKey=null;document.getElementById("cardModal").hidden=true}
+    function applyCardAction(action){if(!activeActionKey)return;const ctx=findCardContext(activeActionKey);const meta=getMeta(ctx.section,ctx.country,ctx.card);const entry=getEntry(activeActionKey);const messages={found:`¿Marcar ${meta.code} ${meta.number} - ${meta.name} como encontrada?`,addDuplicate:`¿Agregar +1 repetida a ${meta.code} ${meta.number} - ${meta.name}?`,exchange:`¿Intercambiar una repetida de ${meta.code} ${meta.number} - ${meta.name}?`,missing:`¿Marcar ${meta.code} ${meta.number} - ${meta.name} como faltante?`};if(!confirm(messages[action]||"¿Confirmar acción?"))return;if(action==="found")state[activeActionKey]={owned:true,duplicates:0};if(action==="addDuplicate")state[activeActionKey]={owned:true,duplicates:(entry.duplicates||0)+1};if(action==="exchange"){const next=Math.max(0,(entry.duplicates||0)-1);state[activeActionKey]={owned:true,duplicates:next}}if(action==="missing")delete state[activeActionKey];closeCardModal();saveCloudState();render()}
+    function visibleKeys(){const s=findSection(activeTab),cards=getCardDefs(s),keys=[];s.countries.forEach(c=>cards.forEach(card=>keys.push(cardKey(s.id,c.key,card.stateNumber))));return keys}
+    function markVisibleAsOwned(){if(!confirm("¿Marcar todas las láminas faltantes de la pestaña visible como encontradas?"))return;visibleKeys().forEach(k=>{const e=getEntry(k);if(!e.owned)state[k]={owned:true,duplicates:0}});saveCloudState();render()}
+    function clearVisibleTab(){if(!confirm("¿Limpiar solo la pestaña visible?"))return;visibleKeys().forEach(k=>delete state[k]);saveCloudState();render()}
+    function resetAlbum(){if(!confirm("¿Reiniciar todo el álbum?"))return;state={};saveCloudState();render()}
+    function exportData(){const data={app:"album-fifa-2026",version:2,exportedAt:new Date().toISOString(),storageKey:STORAGE_KEY,albumId:ALBUM_ID,cards:state,officialData:countStickerRows()?stickerData:null};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`album-fifa-2026-data-${new Date().toISOString().slice(0,10)}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);alert("Data exportada. Guarda el archivo JSON como respaldo.")}
+    function openImportData(){document.getElementById("dataImportInput").value="";document.getElementById("dataImportInput").click()}
+    function importDataFromFile(e){const file=e.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);const next=migrateState(data.cards||data);const total=Object.keys(next).length;if(!confirm(`Se importarán ${total} láminas marcadas. Esto reemplazará la data actual de este navegador. ¿Continuar?`))return;state=next;if(data.officialData){stickerData=data.officialData;saveStickerData()}saveCloudState();render();alert("Data importada correctamente.")}catch(err){console.error(err);alert("No se pudo leer el archivo. Verifica que sea un JSON exportado desde esta página.")}};reader.readAsText(file)}
+    function loadLocalStickerData(){try{return JSON.parse(localStorage.getItem(STICKER_DATA_KEY))||{teams:{},fwc:{},cc:{}}}catch{return{teams:{},fwc:{},cc:{}}}}
+    function saveStickerData(){localStorage.setItem(STICKER_DATA_KEY,JSON.stringify(stickerData));updateOfficialStatus()}
+    function countStickerRows(){return Object.values(stickerData.teams||{}).reduce((a,b)=>a+Object.keys(b).length,0)+Object.keys(stickerData.fwc||{}).length+Object.keys(stickerData.cc||{}).length}
+    function updateOfficialStatus(){const n=countStickerRows();document.getElementById("officialDataStatus").textContent=n?`Listado oficial cargado: ${n} láminas con nombre.`:"Sin listado oficial cargado."}
+    function parseStickerText(text){const data={teams:{},fwc:{},cc:{}};let section="teams";text.split(/\r?\n/).map(l=>l.trim().replace(/^\uFEFF/,"")).filter(Boolean).forEach(line=>{if(line.startsWith("[SECCIÓN ESPECIAL FWC]")){section="fwc";return}if(line.startsWith("[SECCIÓN ESPECIAL COCA")){section="cc";return}if(line.startsWith("País;")||line.startsWith("Número de Lámina;"))return;const p=line.split(";");if(section==="teams"&&p.length>=4){const[country,code,num,...nameParts]=p;const name=nameParts.join(";");data.teams[code]??={};data.teams[code][num]={country,code,number:num,name}}if(section==="fwc"&&p.length>=2){const[num,...nameParts]=p;data.fwc[num]={number:num,name:nameParts.join(";")}}if(section==="cc"&&p.length>=4){const[country,code,num,...nameParts]=p;data.cc[num]={country,code,number:num,name:nameParts.join(";")}}});return data}
+    async function tryLoadRepoStickerData(){if(countStickerRows())return;try{const res=await fetch("album-data.txt",{cache:"no-store"});if(!res.ok)return;const text=await res.text();const parsed=parseStickerText(text);if(Object.values(parsed.teams).length||Object.keys(parsed.fwc).length||Object.keys(parsed.cc).length){stickerData=parsed;saveStickerData();render()}}catch{}}
+    function openOfficialDataImport(){document.getElementById("officialDataInput").value="";document.getElementById("officialDataInput").click()}
+    function importOfficialDataFromFile(e){const file=e.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const parsed=parseStickerText(reader.result);const n=Object.values(parsed.teams).reduce((a,b)=>a+Object.keys(b).length,0)+Object.keys(parsed.fwc).length+Object.keys(parsed.cc).length;if(!n){alert("No se encontraron láminas válidas en el TXT.");return}stickerData=parsed;saveStickerData();render();alert(`Listado oficial cargado: ${n} láminas.`)}catch(err){console.error(err);alert("No se pudo importar el TXT oficial.")}};reader.readAsText(file)}
+    function loadUiScale(){const n=Number(localStorage.getItem(UI_SCALE_KEY));return Number.isFinite(n)?Math.min(1.25,Math.max(.75,n)):1}
+    function applyUiScale(){document.documentElement.style.setProperty("--ui-scale",uiScale.toFixed(2));document.body.classList.toggle("compact",uiScale<=.9);document.body.classList.toggle("ultra",uiScale<=.8);document.getElementById("uiScaleText").textContent=Math.round(uiScale*100)+"%";localStorage.setItem(UI_SCALE_KEY,String(uiScale))}
+    function changeUiScale(delta){uiScale=Math.min(1.25,Math.max(.75,Math.round((uiScale+delta)*100)/100));applyUiScale()}
+    function resetUiScale(){uiScale=1;applyUiScale()}
+    function render(){renderTabs();renderContent();updateStats();renderFilters();updateOfficialStatus();applyUiScale()}
+    render();tryLoadRepoStickerData();initFirebase();
   </script>
 </body>
 </html>
