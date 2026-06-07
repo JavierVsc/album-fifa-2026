@@ -101,7 +101,7 @@
       margin-bottom: 14px;
     }
 
-    .stat, .filter-card, .country {
+    .stat, .filter-card, .country, .data-card {
       background: rgba(255,255,255,.06);
       border: 1px solid var(--line);
       border-radius: 20px;
@@ -161,6 +161,30 @@
     .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; background: rgba(255,255,255,.22); }
     .dot.owned { background: var(--owned); }
     .dot.duplicate { background: var(--dup); }
+
+    .data-card {
+      margin: 14px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .data-card h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .data-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .data-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
     .filters {
       display: grid;
@@ -288,6 +312,11 @@
       border-color: rgba(255,107,107,.28);
     }
 
+    .action-btn.safe {
+      background: rgba(32,201,151,.13);
+      border-color: rgba(32,201,151,.28);
+    }
+
     .group-title {
       margin: 8px 0 14px;
       font-size: 24px;
@@ -361,6 +390,7 @@
       .cards-grid { grid-template-columns: repeat(4, 1fr); }
       .card-btn { min-height: 52px; font-size: 15px; }
       .action-btn { width: 100%; }
+      .data-actions { display: grid; grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -394,6 +424,16 @@
         <span class="pill"><span class="dot owned"></span>Tengo</span>
         <span class="pill"><span class="dot duplicate"></span>Repetida</span>
       </div>
+
+      <section class="data-card">
+        <h2>Respaldo de data</h2>
+        <p>Exporta tu progreso para guardarlo o llevarlo a otro dispositivo. Al importar, la data del archivo reemplaza la data actual de este navegador.</p>
+        <div class="data-actions">
+          <button class="action-btn safe" onclick="exportData()">Exportar data</button>
+          <button class="action-btn" onclick="openImportData()">Importar data</button>
+          <input id="dataImportInput" type="file" accept="application/json,.json" hidden onchange="importDataFromFile(event)" />
+        </div>
+      </section>
 
       <section class="filters">
         <article class="filter-card">
@@ -469,6 +509,9 @@
     window.clearVisibleTab = clearVisibleTab;
     window.resetAlbum = resetAlbum;
     window.renderFilters = renderFilters;
+    window.exportData = exportData;
+    window.openImportData = openImportData;
+    window.importDataFromFile = importDataFromFile;
 
     function loadLocalState() {
       try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
@@ -536,6 +579,73 @@
       } finally {
         saving = false;
       }
+    }
+
+    function exportData() {
+      const data = {
+        app: "album-fifa-2026",
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        storageKey: STORAGE_KEY,
+        albumId: ALBUM_ID,
+        cards: state
+      };
+
+      const json = JSON.stringify(data, null, 2);
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const date = new Date().toISOString().slice(0, 10);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `album-fifa-2026-data-${date}.json`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      alert("Data exportada. Guarda el archivo JSON como respaldo.");
+    }
+
+    function openImportData() {
+      document.getElementById("dataImportInput").value = "";
+      document.getElementById("dataImportInput").click();
+    }
+
+    function isValidImportedState(cards) {
+      if (!cards || typeof cards !== "object" || Array.isArray(cards)) return false;
+      return Object.entries(cards).every(([key, value]) => {
+        return typeof key === "string" && ["owned", "duplicate"].includes(value);
+      });
+    }
+
+    function importDataFromFile(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          const importedCards = data.cards || data;
+
+          if (!isValidImportedState(importedCards)) {
+            alert("El archivo no parece ser una data válida del álbum.");
+            return;
+          }
+
+          const totalImported = Object.keys(importedCards).length;
+          const confirmMessage = `Se importarán ${totalImported} cartas marcadas. Esto reemplazará la data actual de este navegador. ¿Quieres continuar?`;
+          if (!confirm(confirmMessage)) return;
+
+          state = importedCards;
+          saveCloudState();
+          render();
+          alert("Data importada correctamente.");
+        } catch (error) {
+          console.error(error);
+          alert("No se pudo leer el archivo. Verifica que sea un JSON exportado desde esta página.");
+        }
+      };
+      reader.readAsText(file);
     }
 
     function getCardNumbers(sectionId) {
