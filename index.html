@@ -4,15 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#07111f" />
+  <meta name="apple-mobile-web-app-title" content="Álbum 2026" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
   <title>Álbum FIFA 2026</title>
-  <link rel="stylesheet" href="styles.css?v=5" />
+
+  <link rel="icon" type="image/png" href="assets/img/mundial_2026.png?v=1" />
+  <link rel="apple-touch-icon" href="assets/img/mundial_2026.png?v=1" />
+  <link rel="manifest" href="site.webmanifest?v=1" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
+
 <body>
   <div class="app-root" id="appRoot">
     <header class="hero">
-      <div class="hero-badge">FIFA 2026 · Control de láminas</div>
-      <h1>Álbum FIFA 2026</h1>
-      <p class="subtitle">Controla tus láminas encontradas, faltantes, repetidas e intercambios. La base oficial de nombres se carga automáticamente desde <strong>album-data.txt</strong>.</p>
+      <div class="hero-content">
+        <div class="hero-badge">FIFA 2026 · Control de láminas</div>
+        <h1>Álbum FIFA 2026</h1>
+        <p class="subtitle">
+          Controla tus láminas encontradas, faltantes, repetidas e intercambios. La base oficial de nombres se carga automáticamente desde <strong>album-data.txt</strong>.
+        </p>
+      </div>
     </header>
 
     <main>
@@ -29,13 +42,32 @@
         </div>
 
         <section class="stats" aria-label="Indicadores del álbum">
-          <div class="stat"><strong id="progressText">0%</strong><span>Progreso</span></div>
-          <div class="stat"><strong id="ownedText">0</strong><span>Cartas que tengo</span></div>
-          <button class="stat clickable" type="button" data-scroll="missingSection"><strong id="missingText">0</strong><span>Cartas faltantes</span><small>Ver detalle</small></button>
-          <button class="stat clickable" type="button" data-scroll="duplicateSection"><strong id="duplicateText">0</strong><span>Cantidad repetida</span><small>Ver detalle</small></button>
+          <div class="stat">
+            <strong id="progressText">0%</strong>
+            <span>Progreso</span>
+          </div>
+
+          <div class="stat">
+            <strong id="ownedText">0</strong>
+            <span>Cartas que tengo</span>
+          </div>
+
+          <button class="stat clickable" type="button" data-scroll="missingSection">
+            <strong id="missingText">0</strong>
+            <span>Cartas faltantes</span>
+            <small>Ver detalle</small>
+          </button>
+
+          <button class="stat clickable" type="button" data-scroll="duplicateSection">
+            <strong id="duplicateText">0</strong>
+            <span>Cantidad repetida</span>
+            <small>Ver detalle</small>
+          </button>
         </section>
 
-        <div class="progress-wrap" aria-label="Barra de progreso del álbum"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="progress-wrap" aria-label="Barra de progreso del álbum">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
 
         <div class="legend">
           <span class="pill"><span class="dot"></span>Faltante</span>
@@ -48,26 +80,50 @@
         <div class="section-header">
           <div>
             <h2>Filtros del álbum</h2>
-            <p>Filtra por grupo y país/sección. Al seleccionar un grupo, el filtro de país solo muestra países de ese grupo.</p>
+            <p>
+              Filtra por grupo y país/sección. Al seleccionar un grupo, el filtro de país solo muestra países de ese grupo.
+            </p>
           </div>
         </div>
 
         <div class="filter-grid">
           <article class="filter-card" id="missingSection">
-            <div class="filter-title-row"><h3>Cartas faltantes</h3><span class="filter-chip">Faltantes</span></div>
-            <div class="filter-controls">
-              <div class="field"><label for="missingGroup">Grupo</label><select id="missingGroup"></select></div>
-              <div class="field"><label for="missingCountry">País / sección</label><select id="missingCountry"></select></div>
+            <div class="filter-title-row">
+              <h3>Cartas faltantes</h3>
+              <span class="filter-chip">Faltantes</span>
             </div>
+
+            <div class="filter-controls">
+              <div class="field">
+                <label for="missingGroup">Grupo</label>
+                <select id="missingGroup"></select>
+              </div>
+              <div class="field">
+                <label for="missingCountry">País / sección</label>
+                <select id="missingCountry"></select>
+              </div>
+            </div>
+
             <div class="filter-result" id="missingResult"></div>
           </article>
 
           <article class="filter-card" id="duplicateSection">
-            <div class="filter-title-row"><h3>Cartas repetidas</h3><span class="filter-chip duplicate">Repetidas</span></div>
-            <div class="filter-controls">
-              <div class="field"><label for="duplicateGroup">Grupo</label><select id="duplicateGroup"></select></div>
-              <div class="field"><label for="duplicateCountry">País / sección</label><select id="duplicateCountry"></select></div>
+            <div class="filter-title-row">
+              <h3>Cartas repetidas</h3>
+              <span class="filter-chip duplicate">Repetidas</span>
             </div>
+
+            <div class="filter-controls">
+              <div class="field">
+                <label for="duplicateGroup">Grupo</label>
+                <select id="duplicateGroup"></select>
+              </div>
+              <div class="field">
+                <label for="duplicateCountry">País / sección</label>
+                <select id="duplicateCountry"></select>
+              </div>
+            </div>
+
             <div class="filter-result" id="duplicateResult"></div>
           </article>
         </div>
@@ -87,15 +143,22 @@
         <div class="section-header">
           <div>
             <h2>Respaldo de data</h2>
-            <p>Exporta tu progreso para guardarlo o llevarlo a otro dispositivo. Al importar, se reemplaza la data actual de este navegador.</p>
+            <p>
+              Exporta tu progreso para guardarlo o llevarlo a otro dispositivo. Al importar, se reemplaza la data actual de este navegador.
+            </p>
           </div>
         </div>
+
         <div class="backup-actions">
           <button class="action-btn safe" type="button" onclick="exportData()">Exportar data</button>
           <button class="action-btn" type="button" onclick="openImportData()">Importar data</button>
           <input id="dataImportInput" type="file" accept="application/json,.json" hidden onchange="importDataFromFile(event)" />
         </div>
-        <p class="note">Tu progreso local sigue usando la misma clave de guardado: <strong>album-fifa-2026-progreso</strong>. Las repetidas antiguas se interpretan como 1 repetida.</p>
+
+        <p class="note">
+          Tu progreso local sigue usando la misma clave de guardado:
+          <strong>album-fifa-2026-progreso</strong>. Las repetidas antiguas se interpretan como 1 repetida.
+        </p>
       </section>
     </main>
   </div>
@@ -118,6 +181,6 @@
     </div>
   </div>
 
-  <script type="module" src="app.js?v=5"></script>
+  <script type="module" src="app.js?v=6"></script>
 </body>
 </html>
