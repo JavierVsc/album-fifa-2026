@@ -1,0 +1,217 @@
+/* Mejoras visuales externas para Álbum FIFA 2026 */
+:root {
+  --glass: rgba(255, 255, 255, .075);
+  --glass-strong: rgba(255, 255, 255, .115);
+  --glow-blue: rgba(53, 194, 255, .35);
+  --glow-green: rgba(32, 201, 151, .32);
+  --glow-yellow: rgba(255, 209, 102, .32);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  border-radius: 999px;
+  filter: blur(65px);
+  opacity: .55;
+  animation: floatGlow 12s ease-in-out infinite alternate;
+}
+
+body::before {
+  top: 6%;
+  left: -120px;
+  background: rgba(53, 194, 255, .38);
+}
+
+body::after {
+  right: -120px;
+  bottom: 10%;
+  background: rgba(108, 92, 231, .35);
+  animation-delay: -4s;
+}
+
+@keyframes floatGlow {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(45px, -30px, 0) scale(1.18); }
+}
+
+header h1 {
+  background: linear-gradient(120deg, #ffffff, #9de7ff, #ffffff);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: titleShine 6s linear infinite;
+}
+
+@keyframes titleShine {
+  to { background-position: 220% center; }
+}
+
+.panel,
+.stat,
+.card-box,
+.country,
+.tool-card,
+.modal-box {
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .26), inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(53, 194, 255, .8), rgba(32, 201, 151, .7), transparent);
+  animation: scanLine 5s ease-in-out infinite;
+}
+
+@keyframes scanLine {
+  0%, 100% { opacity: .25; transform: translateX(-18%); }
+  50% { opacity: 1; transform: translateX(18%); }
+}
+
+.stat,
+.tool-card,
+.card-box,
+.country {
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.stat:hover,
+.tool-card:hover,
+.card-box:hover,
+.country:hover {
+  transform: translateY(-2px);
+  border-color: rgba(53, 194, 255, .28);
+  background: var(--glass-strong);
+}
+
+.progress-bar {
+  background-size: 220% 100%;
+  animation: progressFlow 3.6s linear infinite;
+}
+
+@keyframes progressFlow {
+  to { background-position: 220% 0; }
+}
+
+.tab-btn,
+.action-btn,
+.card-btn,
+.mini-card {
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background .16s ease;
+}
+
+.tab-btn:hover,
+.action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .22);
+}
+
+.tab-btn.active {
+  box-shadow: 0 12px 28px var(--glow-blue);
+}
+
+.card-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, transparent 0%, rgba(255,255,255,.12) 45%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .55s ease;
+}
+
+.card-btn:hover::before,
+.card-btn:focus-visible::before {
+  transform: translateX(120%);
+}
+
+.card-btn.owned {
+  box-shadow: 0 10px 24px rgba(32, 201, 151, .16);
+}
+
+.card-btn.duplicate {
+  box-shadow: 0 10px 24px rgba(255, 209, 102, .16);
+}
+
+.card-btn.owned .sticker-number::after,
+.card-btn.duplicate .sticker-number::after {
+  margin-left: 6px;
+  font-size: .85em;
+}
+
+.card-btn.owned .sticker-number::after { content: "✓"; color: #7fffd4; }
+.card-btn.duplicate .sticker-number::after { content: "★"; color: #ffe29a; }
+
+.modal {
+  animation: fadeIn .16s ease;
+}
+
+.modal-box {
+  animation: popIn .18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(12px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.badge.online,
+.action-btn.safe {
+  box-shadow: 0 0 0 1px rgba(32, 201, 151, .08), 0 10px 24px rgba(32, 201, 151, .12);
+}
+
+.action-btn.danger {
+  box-shadow: 0 10px 24px rgba(255, 107, 107, .10);
+}
+
+.filter-result {
+  max-height: 220px;
+  overflow: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body::before,
+  body::after {
+    width: 260px;
+    height: 260px;
+  }
+
+  .filter-result {
+    max-height: 180px;
+  }
+
+  .card-btn {
+    border-radius: 16px;
+  }
+}
