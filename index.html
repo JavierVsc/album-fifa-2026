@@ -7,180 +7,34 @@
   <meta name="apple-mobile-web-app-title" content="Álbum 2026" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
   <title>Álbum FIFA 2026</title>
-
   <link rel="icon" type="image/png" href="assets/img/mundial_2026.png?v=1" />
   <link rel="apple-touch-icon" href="assets/img/mundial_2026.png?v=1" />
   <link rel="manifest" href="site.webmanifest?v=1" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
-
 <body>
   <div class="app-root" id="appRoot">
-    <header class="hero">
-      <div class="hero-content">
-        <div class="hero-badge">FIFA 2026 · Control de láminas</div>
-        <h1>Álbum FIFA 2026</h1>
-        <p class="subtitle">
-          Controla tus láminas encontradas, faltantes, repetidas e intercambios. La base oficial de nombres se carga automáticamente desde <strong>album-data.txt</strong>.
-        </p>
-      </div>
-    </header>
-
+    <header class="hero"><div class="hero-content"><div class="hero-badge">FIFA 2026 · Control de láminas</div><h1>Álbum FIFA 2026</h1><p class="subtitle">Controla tus láminas encontradas, faltantes, repetidas e intercambios. La base oficial de nombres se carga automáticamente desde <strong>album-data.txt</strong>.</p></div></header>
     <main>
       <section class="panel dashboard" id="dashboard">
         <div class="sync-box">
-          <div class="sync-row">
-            <span id="syncStatus" class="badge offline">Guardado local activo</span>
-            <span id="lastUpdateText">Guardado local en este navegador</span>
-          </div>
-          <div class="sync-row secondary">
-            <span>Toca una lámina para abrir sus acciones. Ningún cambio se aplica sin confirmación.</span>
-            <span id="officialDataStatus" class="badge neutral">Cargando base oficial...</span>
-          </div>
+          <div class="sync-row"><div class="sync-left"><span id="syncStatus" class="badge offline">Guardado local activo</span><div class="export-shortcuts" aria-label="Exportaciones rápidas"><button class="export-btn" type="button" onclick="exportMissingPdf()">Exportar faltantes</button><button class="export-btn duplicate" type="button" onclick="exportDuplicatesPdf()">Exportar repetidos</button></div></div><span id="lastUpdateText">Guardado local en este navegador</span></div>
+          <div class="sync-row secondary"><span>Toca una lámina para abrir sus acciones. Ningún cambio se aplica sin confirmación.</span><span id="officialDataStatus" class="badge neutral">Cargando base oficial...</span></div>
         </div>
-
-        <section class="stats" aria-label="Indicadores del álbum">
-          <div class="stat">
-            <strong id="progressText">0%</strong>
-            <span>Progreso</span>
-          </div>
-
-          <div class="stat">
-            <strong id="ownedText">0</strong>
-            <span>Cartas que tengo</span>
-          </div>
-
-          <button class="stat clickable" type="button" data-scroll="missingSection">
-            <strong id="missingText">0</strong>
-            <span>Cartas faltantes</span>
-            <small>Ver detalle</small>
-          </button>
-
-          <button class="stat clickable" type="button" data-scroll="duplicateSection">
-            <strong id="duplicateText">0</strong>
-            <span>Cantidad repetida</span>
-            <small>Ver detalle</small>
-          </button>
-        </section>
-
-        <div class="progress-wrap" aria-label="Barra de progreso del álbum">
-          <div class="progress-bar" id="progressBar"></div>
-        </div>
-
-        <div class="legend">
-          <span class="pill"><span class="dot"></span>Faltante</span>
-          <span class="pill"><span class="dot owned"></span>Encontrada</span>
-          <span class="pill"><span class="dot duplicate"></span>Repetida</span>
-        </div>
+        <section class="stats" aria-label="Indicadores del álbum"><div class="stat"><strong id="progressText">0%</strong><span>Progreso</span></div><div class="stat"><strong id="ownedText">0</strong><span>Cartas que tengo</span></div><button class="stat clickable" type="button" data-scroll="missingSection"><strong id="missingText">0</strong><span>Cartas faltantes</span><small>Ver detalle</small></button><button class="stat clickable" type="button" data-scroll="duplicateSection"><strong id="duplicateText">0</strong><span>Cantidad repetida</span><small>Ver detalle</small></button></section>
+        <div class="progress-wrap" aria-label="Barra de progreso del álbum"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="legend"><span class="pill"><span class="dot"></span>Faltante</span><span class="pill"><span class="dot owned"></span>Encontrada</span><span class="pill"><span class="dot duplicate"></span>Repetida</span></div>
       </section>
-
-      <section class="filters-panel" id="filtersSection">
-        <div class="section-header">
-          <div>
-            <h2>Filtros del álbum</h2>
-            <p>
-              Filtra por grupo y país/sección. Al seleccionar un grupo, el filtro de país solo muestra países de ese grupo.
-            </p>
-          </div>
-        </div>
-
-        <div class="filter-grid">
-          <article class="filter-card" id="missingSection">
-            <div class="filter-title-row">
-              <h3>Cartas faltantes</h3>
-              <span class="filter-chip">Faltantes</span>
-            </div>
-
-            <div class="filter-controls">
-              <div class="field">
-                <label for="missingGroup">Grupo</label>
-                <select id="missingGroup"></select>
-              </div>
-              <div class="field">
-                <label for="missingCountry">País / sección</label>
-                <select id="missingCountry"></select>
-              </div>
-            </div>
-
-            <div class="filter-result" id="missingResult"></div>
-          </article>
-
-          <article class="filter-card" id="duplicateSection">
-            <div class="filter-title-row">
-              <h3>Cartas repetidas</h3>
-              <span class="filter-chip duplicate">Repetidas</span>
-            </div>
-
-            <div class="filter-controls">
-              <div class="field">
-                <label for="duplicateGroup">Grupo</label>
-                <select id="duplicateGroup"></select>
-              </div>
-              <div class="field">
-                <label for="duplicateCountry">País / sección</label>
-                <select id="duplicateCountry"></select>
-              </div>
-            </div>
-
-            <div class="filter-result" id="duplicateResult"></div>
-          </article>
-        </div>
-      </section>
-
+      <section class="filters-panel" id="filtersSection"><div class="section-header"><div><h2>Filtros del álbum</h2><p>Filtra por grupo y país/sección. Al seleccionar un grupo, el filtro de país solo muestra países de ese grupo.</p></div></div><div class="filter-grid"><article class="filter-card" id="missingSection"><div class="filter-title-row"><h3>Cartas faltantes</h3><span class="filter-chip">Faltantes</span></div><div class="filter-controls"><div class="field"><label for="missingGroup">Grupo</label><select id="missingGroup"></select></div><div class="field"><label for="missingCountry">País / sección</label><select id="missingCountry"></select></div></div><div class="filter-result" id="missingResult"></div></article><article class="filter-card" id="duplicateSection"><div class="filter-title-row"><h3>Cartas repetidas</h3><span class="filter-chip duplicate">Repetidas</span></div><div class="filter-controls"><div class="field"><label for="duplicateGroup">Grupo</label><select id="duplicateGroup"></select></div><div class="field"><label for="duplicateCountry">País / sección</label><select id="duplicateCountry"></select></div></div><div class="filter-result" id="duplicateResult"></div></article></div></section>
       <nav class="tabs" id="tabs" aria-label="Pestañas de grupos"></nav>
-
-      <section class="actions">
-        <button class="action-btn" type="button" onclick="markVisibleAsOwned()">Marcar grupo visible como encontrado</button>
-        <button class="action-btn" type="button" onclick="clearVisibleTab()">Limpiar grupo visible</button>
-        <button class="action-btn danger" type="button" onclick="resetAlbum()">Reiniciar todo el álbum</button>
-      </section>
-
+      <section class="actions"><button class="action-btn" type="button" onclick="markVisibleAsOwned()">Marcar grupo visible como encontrado</button><button class="action-btn" type="button" onclick="clearVisibleTab()">Limpiar grupo visible</button><button class="action-btn danger" type="button" onclick="resetAlbum()">Reiniciar todo el álbum</button></section>
       <section id="content"></section>
-
-      <section class="backup-panel" id="backupSection">
-        <div class="section-header">
-          <div>
-            <h2>Respaldo de data</h2>
-            <p>
-              Exporta tu progreso para guardarlo o llevarlo a otro dispositivo. Al importar, se reemplaza la data actual de este navegador.
-            </p>
-          </div>
-        </div>
-
-        <div class="backup-actions">
-          <button class="action-btn safe" type="button" onclick="exportData()">Exportar data</button>
-          <button class="action-btn" type="button" onclick="openImportData()">Importar data</button>
-          <input id="dataImportInput" type="file" accept="application/json,.json" hidden onchange="importDataFromFile(event)" />
-        </div>
-
-        <p class="note">
-          Tu progreso local sigue usando la misma clave de guardado:
-          <strong>album-fifa-2026-progreso</strong>. Las repetidas antiguas se interpretan como 1 repetida.
-        </p>
-      </section>
+      <section class="backup-panel" id="backupSection"><div class="section-header"><div><h2>Respaldo de data</h2><p>Exporta tu progreso para guardarlo o llevarlo a otro dispositivo. Al importar, se reemplaza la data actual de este navegador.</p></div></div><div class="backup-actions"><button class="action-btn safe" type="button" onclick="exportData()">Exportar data</button><button class="action-btn" type="button" onclick="openImportData()">Importar data</button><input id="dataImportInput" type="file" accept="application/json,.json" hidden onchange="importDataFromFile(event)" /></div><p class="note">Tu progreso local sigue usando la misma clave de guardado: <strong>album-fifa-2026-progreso</strong>. Las repetidas antiguas se interpretan como 1 repetida.</p></section>
     </main>
   </div>
-
-  <div class="ui-float" id="uiScaleControl">
-    <div class="floating-menu">
-      <button class="float-action" type="button" onclick="changeUiScale(0.08)" aria-label="Agrandar vista">+</button>
-      <button class="float-action" type="button" onclick="changeUiScale(-0.08)" aria-label="Disminuir vista">−</button>
-      <button class="ui-scale-text" type="button" onclick="resetUiScale()" id="uiScaleText">100%</button>
-    </div>
-    <button class="float-main" type="button" onclick="toggleUiScaleMenu()" aria-label="Cambiar tamaño de vista">Aa</button>
-  </div>
-
-  <div class="modal" id="cardModal" hidden>
-    <div class="modal-box">
-      <h2 id="modalTitle">Lámina</h2>
-      <p class="modal-detail" id="modalDetail"></p>
-      <div class="modal-actions" id="modalActions"></div>
-      <button class="action-btn" type="button" style="width:100%;margin-top:10px" onclick="closeCardModal()">Cancelar</button>
-    </div>
-  </div>
-
-  <script type="module" src="app.js?v=6"></script>
+  <div class="ui-float" id="uiScaleControl"><div class="floating-menu"><button class="float-action" type="button" onclick="changeUiScale(0.08)" aria-label="Agrandar vista">+</button><button class="float-action" type="button" onclick="changeUiScale(-0.08)" aria-label="Disminuir vista">−</button><button class="ui-scale-text" type="button" onclick="resetUiScale()" id="uiScaleText">100%</button></div><button class="float-main" type="button" onclick="toggleUiScaleMenu()" aria-label="Cambiar tamaño de vista">Aa</button></div>
+  <div class="modal" id="cardModal" hidden><div class="modal-box"><h2 id="modalTitle">Lámina</h2><p class="modal-detail" id="modalDetail"></p><div class="modal-actions" id="modalActions"></div><button class="action-btn" type="button" style="width:100%;margin-top:10px" onclick="closeCardModal()">Cancelar</button></div></div>
+  <script type="module" src="app.js?v=7"></script>
 </body>
 </html>
